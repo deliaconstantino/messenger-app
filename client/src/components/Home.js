@@ -23,6 +23,7 @@ class Home extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    //Question: why is this set to check if current user id !== prev. Why not check if curr user id DOES equal prev?
     if (this.props.user.id !== prevProps.user.id) {
       this.setState({
         isLoggedIn: true,
