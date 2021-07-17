@@ -76,8 +76,6 @@ router.get("/", async (req, res, next) => {
       conversations[i] = convoJSON;
     }
 
-    // conversations.sort()
-
     res.json(conversations);
   } catch (error) {
     next(error);
