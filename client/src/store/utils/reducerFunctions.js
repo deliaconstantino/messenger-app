@@ -12,17 +12,23 @@ export const addMessageToStore = (state, payload) => {
     return [newConvo, ...state];
   }
 
-  return state.map((convo) => {
+  //reorder conversations so message's conversation moves to top of Sidebar
+  const newState = [];
+  let foundCurrentConvo = false;
+  state.forEach((convo, i) => {
     if (convo.id === message.conversationId) {
       const convoCopy = { ...convo };
       convoCopy.messages.push(message);
       convoCopy.latestMessageText = message.text;
 
-      return convoCopy;
+      newState[0] = convoCopy;
+      foundCurrentConvo = true;
     } else {
-      return convo;
+      foundCurrentConvo ? (newState[i] = convo) : (newState[i + 1] = convo);
     }
   });
+
+  return newState;
 };
 
 export const addOnlineUserToStore = (state, id) => {
