@@ -20,7 +20,6 @@ const styles = {
 };
 
 class Chat extends Component {
-  //Question: why does it pass in a username here and expect an id below?
   handleClick = async (conversation) => {
     await this.props.setActiveChat(conversation.otherUser.username);
   };
