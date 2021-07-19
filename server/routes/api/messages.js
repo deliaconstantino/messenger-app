@@ -75,13 +75,11 @@ router.all("/update-read-messages", async (req, res, next) => {
 
     const messages = await Message.findAll({
       where: {
-        [Op.and]: [
-          {conversationId: conversationId},
-          { senderId: {
-            [Op.not]: userId
-          }},
-        ]
-      }
+        conversationId: conversationId,
+      },
+      order: [
+        ['id', 'ASC'],
+      ]
     })
 
     console.log(messages)
