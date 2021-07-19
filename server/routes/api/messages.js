@@ -15,13 +15,14 @@ router.post("/", async (req, res, next) => {
     if (conversationId) {
       //Issue 1 exploit solution: if conversation exists, validate that the current senderId is in one of the userId columns
       const currentConvo = await Conversation.findByPk(conversationId)
-
-      if (currentConvo && (currentConvo.user1Id === senderId || currentConvo.user2Id === senderId)) {
-        const message = await Message.create({ senderId, text, conversationId });
-        return res.json({ message, sender });
-      } else {
-        return res.sendStatus(403);
+      
+      if (!currentConvo) return res.sendStatus(404);
+      
+      if (currentConvo.user1Id !== senderId && currentConvo.user2Id !== senderId) {
+          return res.sendStatus(403);
       }
+      const message = await Message.create({ senderId, text, conversationId });
+      return res.json({ message, sender });
     }
 
     // if we don't have conversation id, find a conversation to make sure it doesn't already exist
