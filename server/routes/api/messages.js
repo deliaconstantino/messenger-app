@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { Op } = require("sequelize");
 const { Conversation, Message } = require("../../db/models");
 const onlineUsers = require("../../onlineUsers");
 
@@ -15,9 +16,9 @@ router.post("/", async (req, res, next) => {
     if (conversationId) {
       //Issue 1 exploit solution: if conversation exists, validate that the current senderId is in one of the userId columns
       const currentConvo = await Conversation.findByPk(conversationId)
-      
+
       if (!currentConvo) return res.sendStatus(404);
-      
+
       if (currentConvo.user1Id !== senderId && currentConvo.user2Id !== senderId) {
           return res.sendStatus(403);
       }
@@ -50,6 +51,55 @@ router.post("/", async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+});
+
+router.all("/update-read-messages", async (req, res, next) => {
+  try {
+    console.log('hit this route')
+
+    const userId = req.user.id;
+    const { conversationId } = req.body;
+
+    await Message.update({
+      read: true,
+    }, {
+      where: {
+        [Op.and]: [
+          {conversationId: conversationId},
+          { senderId: {
+            [Op.not]: userId
+          }},
+        ]
+      }
+    })
+
+    const messages = await Message.findAll({
+      where: {
+        [Op.and]: [
+          {conversationId: conversationId},
+          { senderId: {
+            [Op.not]: userId
+          }},
+        ]
+      }
+    })
+
+    console.log(messages)
+
+    res.json({messages, conversationId})
+
+
+//   //   queryInterface.bulkUpdate('roles', {
+//   //     label: 'admin',
+//   //   }, {
+//   //     userType: 3,
+//   //   },
+//   // );
+
+  } catch(error) {
+    next(error);
+  }
+
 });
 
 module.exports = router;
