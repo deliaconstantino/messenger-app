@@ -31,6 +31,23 @@ export const addMessageToStore = (state, payload) => {
   return newState;
 };
 
+// update read status of read messages to true
+export const updateReadStatusInStore = (state, conversationId, messages) => {
+  const updatedState = state.map(convo => {
+    if (convo.id === conversationId) {
+      const updatedMessages = {
+        messages
+      }
+      const updatedConvo = { ...convo, ...updatedMessages }
+      return updatedConvo
+    } else {
+      return convo
+    }
+  })
+
+  return updatedState
+}
+
 export const addOnlineUserToStore = (state, id) => {
   return state.map((convo) => {
     if (convo.otherUser.id === id) {
