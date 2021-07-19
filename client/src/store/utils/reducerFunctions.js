@@ -35,10 +35,11 @@ export const addMessageToStore = (state, payload) => {
 export const updateReadStatusInStore = (state, conversationId, messages) => {
   const updatedState = state.map(convo => {
     if (convo.id === conversationId) {
-      const updatedMessages = {
+      const updatedConvoValues = {
+        unreadMessagesCount: 0,
         messages
       }
-      const updatedConvo = { ...convo, ...updatedMessages }
+      const updatedConvo = { ...convo, ...updatedConvoValues}
       return updatedConvo
     } else {
       return convo

@@ -82,7 +82,9 @@ router.all("/update-read-messages", async (req, res, next) => {
       ]
     })
 
-    console.log(messages)
+    // const unreadMessagesCount = 0;
+
+    // console.log(messages)
 
     res.json({messages, conversationId})
 
