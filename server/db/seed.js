@@ -4,7 +4,7 @@ const Conversation = require("./models/conversation");
 const Message = require("./models/message");
 
 async function seed() {
-  await db.sync({ force: true });
+  await db.sync({ alter: true });
   console.log("db synced!");
 
   const thomas = await User.create({
