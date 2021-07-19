@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -16,6 +16,11 @@ const useStyles = makeStyles((theme) => ({
   previewText: {
     fontSize: 12,
     color: "#9CADC8",
+    letterSpacing: -0.17,
+  },
+  unreadPreviewText: {
+    fontWeight: "bold",
+    fontSize: 12,
     letterSpacing: -0.17,
   },
   notification: {
@@ -40,13 +45,15 @@ const ChatContent = (props) => {
   const { conversation } = props;
   const { latestMessageText, otherUser } = conversation;
 
+  const readStatusUI = (conversation.unreadMessagesCount > 0) ? classes.unreadPreviewText : classes.previewText;
+
   return (
     <Box className={classes.root}>
       <Box>
         <Typography className={classes.username}>
           {otherUser.username}
         </Typography>
-        <Typography className={classes.previewText}>
+        <Typography className={readStatusUI}>
           {latestMessageText}
         </Typography>
       </Box>
