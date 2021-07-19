@@ -4,7 +4,6 @@ import {
   addSearchedUsersToStore,
   removeOfflineUserFromStore,
   addMessageToStore,
-  changeReadToTrue,
 } from "./utils/reducerFunctions";
 
 // ACTIONS
@@ -69,14 +68,6 @@ export const addConversation = (recipientId, newMessage) => {
   };
 };
 
-// update read status on conversation's messages
-// export const updateReadStatus = (conversationId) => {
-//   return {
-//     type: UPDATE_READ_STATUS,
-//     conversationId
-//   }
-// }
-
 // REDUCER
 
 const reducer = (state = [], action) => {
@@ -101,8 +92,6 @@ const reducer = (state = [], action) => {
         action.payload.recipientId,
         action.payload.newMessage
       );
-    // case UPDATE_READ_STATUS:
-    //   return changeReadToTrue(state, action.conversationId);
     default:
       return state;
   }

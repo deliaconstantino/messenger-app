@@ -115,10 +115,6 @@ export const updateReadStatus = (body) => async (dispatch) => {
   } catch (error) {
     console.error(error)
   }
-  // return {
-  //   type: UPDATE_READ_STATUS,
-  //   conversationId
-  // }
 }
 
 export const searchUsers = (searchTerm) => async (dispatch) => {
