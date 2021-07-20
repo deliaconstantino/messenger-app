@@ -25,7 +25,7 @@ class Chat extends Component {
   handleClick = async (conversation) => {
     await this.props.setActiveChat(conversation.otherUser.username);
     const reqBody = {
-      conversationId: this.props.conversation.id,
+      conversationId: conversation.id,
     };
     await this.props.updateReadStatus(reqBody);
   };
@@ -36,7 +36,7 @@ class Chat extends Component {
     const count = conversation.unreadMessagesCount;
     return (
       <Box
-        onClick={() => this.handleClick(this.props.conversation)}
+        onClick={() => this.handleClick(conversation)}
         className={classes.root}
       >
         <BadgeAvatar
@@ -45,7 +45,7 @@ class Chat extends Component {
           online={otherUser.online}
           sidebar={true}
         />
-        <ChatContent conversation={this.props.conversation} />
+        <ChatContent conversation={conversation} />
         {count > 0 ? <BadgeUnread count={count} /> : null}
       </Box>
     );
