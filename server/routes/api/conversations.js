@@ -75,26 +75,12 @@ router.get("/", async (req, res, next) => {
       let otherUserLastSeen;
 
       convoJSON.messages.forEach(message => {
-        // if ((message.senderId !== userId) && !message.read) {
-        //   numberUnreadMessages++;
-        // }
-
-        // if (!message.read) {
-        //   message.senderId !== userId ? currentUserUnreadMessages++ : otherUserUnreadMessages++
-        // }
-
         if (message.senderId !== userId) {
           if (!message.read) numberUnreadMessages++
         } else {
           if (message.read) otherUserLastSeen = message.id
         }
       })
-      // for (let j = 0; j < convoJSON.messages.length; j++) {
-      //   if ()
-      //   if (!convoJSON.messages.read) {
-      //     numberUnreadMessages++;
-      //   }
-      // }
 
       // set properties for notification count and latest message preview
       convoJSON.latestMessageText = convoJSON.messages[convoJSON.messages.length - 1].text;

@@ -4,7 +4,6 @@ import { SenderBubble, OtherUserBubble } from "../ActiveChat";
 import moment from "moment";
 
 const Messages = (props) => {
-  console.log("message props", props);
   const { messages, otherUser, userId, lastSeenId } = props;
 
   return (

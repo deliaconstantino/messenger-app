@@ -15,12 +15,15 @@ router.post("/", async (req, res, next) => {
     // if we already know conversation id, we can save time and just add it to message and return
     if (conversationId) {
       //Issue 1 exploit solution: if conversation exists, validate that the current senderId is in one of the userId columns
-      const currentConvo = await Conversation.findByPk(conversationId)
+      const currentConvo = await Conversation.findByPk(conversationId);
 
       if (!currentConvo) return res.sendStatus(404);
 
-      if (currentConvo.user1Id !== senderId && currentConvo.user2Id !== senderId) {
-          return res.sendStatus(403);
+      if (
+        currentConvo.user1Id !== senderId &&
+        currentConvo.user2Id !== senderId
+      ) {
+        return res.sendStatus(403);
       }
       const message = await Message.create({ senderId, text, conversationId });
       return res.json({ message, sender });
@@ -55,51 +58,40 @@ router.post("/", async (req, res, next) => {
 
 router.all("/update-read-messages", async (req, res, next) => {
   try {
-    console.log('hit this route')
+    console.log("hit this route");
 
     const userId = req.user.id;
     const { conversationId } = req.body;
 
-    await Message.update({
-      read: true,
-    }, {
-      where: {
-        [Op.and]: [
-          {conversationId: conversationId},
-          { senderId: {
-            [Op.not]: userId
-          }},
-        ]
+    await Message.update(
+      {
+        read: true,
+      },
+      {
+        where: {
+          [Op.and]: [
+            { conversationId: conversationId },
+            {
+              senderId: {
+                [Op.not]: userId,
+              },
+            },
+          ],
+        },
       }
-    })
+    );
 
     const messages = await Message.findAll({
       where: {
         conversationId: conversationId,
       },
-      order: [
-        ['id', 'ASC'],
-      ]
-    })
+      order: [["id", "ASC"]],
+    });
 
-    // const unreadMessagesCount = 0;
-
-    // console.log(messages)
-
-    res.json({messages, conversationId})
-
-
-//   //   queryInterface.bulkUpdate('roles', {
-//   //     label: 'admin',
-//   //   }, {
-//   //     userType: 3,
-//   //   },
-//   // );
-
-  } catch(error) {
+    res.json({ messages, conversationId });
+  } catch (error) {
     next(error);
   }
-
 });
 
 module.exports = router;
