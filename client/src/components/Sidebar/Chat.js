@@ -5,6 +5,8 @@ import { withStyles } from "@material-ui/core/styles";
 import { setActiveChat } from "../../store/activeConversation";
 import { connect } from "react-redux";
 import { updateReadStatus } from "../../store/utils/thunkCreators"
+import BadgeUnread from "./BadgeUnread"
+
 // client/src/store/utils/thunkCreators.js
 
 const styles = {
@@ -49,6 +51,7 @@ class Chat extends Component {
           sidebar={true}
         />
         <ChatContent conversation={this.props.conversation} />
+        <BadgeUnread />
         {/* TODO: render a bubble with number of unread messages if greater than 0 */}
       </Box>
     );
