@@ -14,7 +14,7 @@ const BadgeUnread = (props) => {
 
   return (
     <Box className={classes.sidebar}>
-      <Badge badgeContent={4} color="primary">
+      <Badge badgeContent={props.count} color="primary">
       </Badge>
     </Box>
   );

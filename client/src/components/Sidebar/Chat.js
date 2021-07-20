@@ -36,9 +36,10 @@ class Chat extends Component {
   //TODO: add handleClick to send fetch to backend and update messages to read in conversation
 
   render() {
-    console.log("props", this.props)
+    console.log("props from chat", this.props)
     const { classes } = this.props;
     const otherUser = this.props.conversation.otherUser;
+    const count = this.props.conversation.unreadMessagesCount;
     return (
       <Box
         onClick={() => this.handleClick(this.props.conversation)}
@@ -51,7 +52,8 @@ class Chat extends Component {
           sidebar={true}
         />
         <ChatContent conversation={this.props.conversation} />
-        <BadgeUnread />
+        {count > 0 ? <BadgeUnread count={count}/> : null}
+
         {/* TODO: render a bubble with number of unread messages if greater than 0 */}
       </Box>
     );
