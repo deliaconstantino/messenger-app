@@ -58,8 +58,6 @@ router.post("/", async (req, res, next) => {
 
 router.put("/update-read-messages", async (req, res, next) => {
   try {
-    console.log("hit this route");
-
     const userId = req.user.id;
     const { conversationId } = req.body;
 
