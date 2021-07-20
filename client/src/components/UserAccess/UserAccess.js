@@ -12,6 +12,8 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import Login from "./Login"
+
 
 function Copyright() {
   return (
@@ -66,13 +68,24 @@ export default function SignInSide() {
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
-          <form className={classes.form} noValidate>
+
+          <Login />
+
+        </div>
+      </Grid>
+    </Grid>
+  );
+}
+
+
+{/* <Avatar className={classes.avatar}>
+<LockOutlinedIcon />
+</Avatar>
+<Typography component="h1" variant="h5">
+Sign in
+</Typography> */}
+
+{/* <form className={classes.form} noValidate>
             <TextField
               variant="outlined"
               margin="normal"
@@ -121,11 +134,6 @@ export default function SignInSide() {
               </Grid>
             </Grid>
             <Box mt={5}>
-              <Copyright />
+ <Copyright />
             </Box>
-          </form>
-        </div>
-      </Grid>
-    </Grid>
-  );
-}
+          </form>  */}
