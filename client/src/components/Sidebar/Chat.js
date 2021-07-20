@@ -31,9 +31,9 @@ class Chat extends Component {
   };
 
   render() {
-    const { classes } = this.props;
-    const otherUser = this.props.conversation.otherUser;
-    const count = this.props.conversation.unreadMessagesCount;
+    const { classes, conversation } = this.props;
+    const otherUser = conversation.otherUser;
+    const count = conversation.unreadMessagesCount;
     return (
       <Box
         onClick={() => this.handleClick(this.props.conversation)}
