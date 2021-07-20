@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(() => ({
   sidebar: {
     marginRight: 25,
-  }
+  },
 }));
 
 const BadgeUnread = (props) => {
@@ -14,8 +14,7 @@ const BadgeUnread = (props) => {
 
   return (
     <Box className={classes.sidebar}>
-      <Badge badgeContent={props.count} color="primary">
-      </Badge>
+      <Badge badgeContent={props.count} color="primary"></Badge>
     </Box>
   );
 };
