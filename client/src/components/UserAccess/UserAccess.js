@@ -13,6 +13,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Login from "./Login"
+import { SvgIcon } from '@material-ui/core';
+import { AccessAlarm, ThreeDRotation } from '@material-ui/icons';
 
 
 function Copyright() {
@@ -35,10 +37,18 @@ const useStyles = makeStyles((theme) => ({
   image: {
     backgroundImage: 'url(https://source.unsplash.com/random)',
     backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+    backgroundImage: "linear-gradient(225deg, #3A8DFF 0%, #86B9FF 100%)",
+    opacity: "85%",
+    // backgroundColor:
+    //   theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
     backgroundSize: 'cover',
     backgroundPosition: 'center',
+  },
+  bubble: {
+    backgroundImage: 'url(https://source.unsplash.com/random)',
+    background: "linear-gradient(225deg, #3A8DFF 0%, #86B9FF 100%)",
+    opacity: "85%",
+    // borderRadius: "0 10px 10px 10px"
   },
   paper: {
     margin: theme.spacing(8, 4),
@@ -65,7 +75,11 @@ export default function SignInSide() {
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
+      <Grid item xs={false} sm={4} md={7} className={classes.image}>
+        {/* <SvgIcon>
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+        </SvgIcon> */}
+      </Grid>
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
 
