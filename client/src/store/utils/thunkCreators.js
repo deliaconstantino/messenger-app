@@ -108,7 +108,7 @@ export const postMessage = (body) => async (dispatch) => {
 //update read to true on click
 export const updateReadStatus = (body) => async (dispatch) => {
   try {
-    const response = await axios.put("/api/messages/update-read-messages", body);
+    const response = await axios.put("/api/messages/updated-messages", body);
     dispatch(updateReadMessages(response.data.conversationId, response.data.messages))
   } catch (error) {
     console.error(error)

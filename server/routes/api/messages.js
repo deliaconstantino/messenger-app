@@ -56,7 +56,7 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.put("/update-read-messages", async (req, res, next) => {
+router.put("/updated-messages", async (req, res, next) => {
   try {
     const userId = req.user.id;
     const { conversationId } = req.body;
