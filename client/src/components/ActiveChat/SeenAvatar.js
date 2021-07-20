@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Badge, Avatar } from "@material-ui/core";
+import { Box, Avatar } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -8,16 +8,16 @@ const useStyles = makeStyles(() => ({
     height: 20,
     width: 20,
     marginRight: 2,
-    marginTop: 6
+    marginTop: 6,
   },
 }));
 
 const SeenAvatar = (props) => {
   const classes = useStyles();
-  const { username,  photoUrl } = props.otherUser;
+  const { username, photoUrl } = props.otherUser;
 
   return (
-    <Box >
+    <Box>
       <Avatar alt={username} src={photoUrl} className={classes.avatar}></Avatar>
     </Box>
   );
