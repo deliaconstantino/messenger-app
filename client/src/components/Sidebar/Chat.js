@@ -7,8 +7,6 @@ import { connect } from "react-redux";
 import { updateReadStatus } from "../../store/utils/thunkCreators"
 import BadgeUnread from "./BadgeUnread"
 
-// client/src/store/utils/thunkCreators.js
-
 const styles = {
   root: {
     borderRadius: 8,
@@ -33,8 +31,6 @@ class Chat extends Component {
     await this.props.updateReadStatus(reqBody);
   };
 
-  //TODO: add handleClick to send fetch to backend and update messages to read in conversation
-
   render() {
     console.log("props from chat", this.props)
     const { classes } = this.props;
@@ -53,8 +49,6 @@ class Chat extends Component {
         />
         <ChatContent conversation={this.props.conversation} />
         {count > 0 ? <BadgeUnread count={count}/> : null}
-
-        {/* TODO: render a bubble with number of unread messages if greater than 0 */}
       </Box>
     );
   }
