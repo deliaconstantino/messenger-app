@@ -104,7 +104,6 @@ const reducer = (state = [], action) => {
       );
     case UPDATE_READ_STATUS:
       return updateReadStatusInStore(state, action.conversationId, action.messages)
-      // return state
     default:
       return state;
   }
