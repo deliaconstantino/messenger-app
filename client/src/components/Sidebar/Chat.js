@@ -27,7 +27,9 @@ class Chat extends Component {
     const reqBody = {
       conversationId: conversation.id,
     };
-    await this.props.updateReadStatus(reqBody);
+    if (conversation.unreadMessagesCount > 0) {
+      await this.props.updateReadStatus(reqBody);
+    }
   };
 
   render() {
