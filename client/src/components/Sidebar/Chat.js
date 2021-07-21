@@ -48,7 +48,7 @@ class Chat extends Component {
           sidebar={true}
         />
         <ChatContent conversation={conversation} />
-        {count > 0 ? <BadgeUnread count={count} /> : null}
+        {count > 0 && <BadgeUnread count={count} />}
       </Box>
     );
   }
