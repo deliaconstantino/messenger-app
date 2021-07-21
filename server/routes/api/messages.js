@@ -76,9 +76,21 @@ router.post("/", async (req, res, next) => {
 
 router.put("/updated-messages", authenticateToken, async (req, res, next) => {
   try {
-
     const userId = req.user.id;
     const { conversationId } = req.body;
+
+    //
+    const currentConvo = await Conversation.findByPk(conversationId);
+
+      if (!currentConvo) return res.sendStatus(404);
+
+      if (
+        currentConvo.user1Id !== userId &&
+        currentConvo.user2Id !== userId
+      ) {
+        return res.sendStatus(403);
+      }
+      //
 
     await Message.update(
       {
@@ -99,7 +111,7 @@ router.put("/updated-messages", authenticateToken, async (req, res, next) => {
       }
     );
 
-    res.json({ conversationId });
+    res.status(200).json({ conversationId });
   } catch (error) {
     next(error);
   }
