@@ -26,8 +26,6 @@ const validateConversation = async (conversationId, matchId) => {
   if (currentConvo.user1Id !== matchId && currentConvo.user2Id !== matchId) {
     return res.sendStatus(403);
   }
-  // const message = await Message.create({ senderId, text, conversationId });
-  // return res.json({ message, sender });
 };
 
 // expects {recipientId, text, conversationId } in body (conversationId will be null if no conversation exists yet)
