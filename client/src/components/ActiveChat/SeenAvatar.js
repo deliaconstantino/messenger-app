@@ -17,9 +17,7 @@ const SeenAvatar = (props) => {
   const { username, photoUrl } = props.otherUser;
 
   return (
-    <Box>
-      <Avatar alt={username} src={photoUrl} className={classes.avatar}></Avatar>
-    </Box>
+      <Avatar alt={username} src={photoUrl} className={classes.avatar} />
   );
 };
 
