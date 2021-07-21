@@ -21,26 +21,14 @@ export const theme = createTheme({
     primary: { main: "#3A8DFF" },
     secondary: { main: "#B0B0B0" }
   },
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 960,
-      lg: 1280,
-      xl: 1920,
-      mdCustom: 850,
-    },
-  },
+  // breakpoints: {
+  //   values: {
+  //     xs: 0,
+  //     sm: 600,
+  //     md: 960,
+  //     lg: 1280,
+  //     xl: 1920,
+  //     mdCustom: 850,
+  //   },
+  // },
 });
-
-// const theme = createTheme({
-//   breakpoints: {
-//     values: {
-//       xs: 0,
-//       sm: 600,
-//       md: 960,
-//       lg: 1280,
-//       xl: 1920,
-//     },
-//   },
-// })
