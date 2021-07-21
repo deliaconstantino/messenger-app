@@ -19,6 +19,21 @@ function authenticateToken (req, res, next) {
 
 }
 
+const validateConversation = async (conversationId, matchId) => {
+  const currentConvo = await Conversation.findByPk(conversationId);
+
+      if (!currentConvo) return res.sendStatus(404);
+
+      if (
+        currentConvo.user1Id !== matchId &&
+        currentConvo.user2Id !== matchId
+      ) {
+        return res.sendStatus(403);
+      }
+      // const message = await Message.create({ senderId, text, conversationId });
+      // return res.json({ message, sender });
+}
+
 
 
 // expects {recipientId, text, conversationId } in body (conversationId will be null if no conversation exists yet)
@@ -33,16 +48,16 @@ router.post("/", async (req, res, next) => {
     // if we already know conversation id, we can save time and just add it to message and return
     if (conversationId) {
       //Issue 1 exploit solution: if conversation exists, validate that the current senderId is in one of the userId columns
-      const currentConvo = await Conversation.findByPk(conversationId);
+      // const currentConvo = await Conversation.findByPk(conversationId);
+      await validateConversation(conversationId, senderId)
+      // if (!currentConvo) return res.sendStatus(404);
 
-      if (!currentConvo) return res.sendStatus(404);
-
-      if (
-        currentConvo.user1Id !== senderId &&
-        currentConvo.user2Id !== senderId
-      ) {
-        return res.sendStatus(403);
-      }
+      // if (
+      //   currentConvo.user1Id !== senderId &&
+      //   currentConvo.user2Id !== senderId
+      // ) {
+      //   return res.sendStatus(403);
+      // }
       const message = await Message.create({ senderId, text, conversationId });
       return res.json({ message, sender });
     }
@@ -80,17 +95,19 @@ router.put("/updated-messages", authenticateToken, async (req, res, next) => {
     const { conversationId } = req.body;
 
     //
-    const currentConvo = await Conversation.findByPk(conversationId);
+    await validateConversation(conversationId, userId)
 
-      if (!currentConvo) return res.sendStatus(404);
+    // const currentConvo = await Conversation.findByPk(conversationId);
 
-      if (
-        currentConvo.user1Id !== userId &&
-        currentConvo.user2Id !== userId
-      ) {
-        return res.sendStatus(403);
-      }
-      //
+    //   if (!currentConvo) return res.sendStatus(404);
+
+    //   if (
+    //     currentConvo.user1Id !== userId &&
+    //     currentConvo.user2Id !== userId
+    //   ) {
+    //     return res.sendStatus(403);
+    //   }
+    //   //
 
     await Message.update(
       {
