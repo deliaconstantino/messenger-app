@@ -31,13 +31,11 @@ export const addMessageToStore = (state, payload) => {
   return newState;
 };
 
-// update read status of read messages to true
-export const updateReadStatusInStore = (state, conversationId, messages) => {
+export const updateReadStatusInStore = (state, conversationId) => {
   return state.map(convo => {
     if (convo.id === conversationId) {
       const updatedConvoValues = {
         unreadMessagesCount: 0,
-        messages
       }
       const updatedConvo = { ...convo, ...updatedConvoValues}
       return updatedConvo
