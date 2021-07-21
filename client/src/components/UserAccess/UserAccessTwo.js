@@ -30,19 +30,36 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100vh",
+    // height: "100vh",
+    // flexGrow: 1,
+    // overflow: 'hidden',
+    // padding: theme.spacing(0, 0, 1, 3),
+    // justifyContent: "center",
   },
   image: {
     backgroundImage: "url(bg-img.png)",
     backgroundRepeat: "no-repeat",
-    objectFit: 'cover',
-    height: 'auto',
-    justifyContent: "center",
-    alignItems: "center",
-    width: 'auto',
-    // [theme.breakpoints.only('mdCustom')]: {
+    backgroundSize: "cover",
+    backgroundPosition: "center top",
+    // objectFit: 'cover',
+    // objectPosition: "right top",
+    // height: 'auto',
+    // justifyContent: "center",
+    // alignItems: "end",
+    // width: 'auto',
+    // maxWidth: "1500px",
+    // maxHeight: "2000px",
+    // display: "table-cell",
+    // verticalAlign: "middle",
+    // [theme.breakpoints.only("xs")]: {
+    //   width: false},
+    // [theme.breakpoints.only("s")]: {
+    //     width: 6},
+    // [theme.breakpoints.only("mdCustom")]: {
     //   width: 4},
-
+    //   [theme.breakpoints.only("lg")]: {
+    //     width: 3},
+    // width: theme.spacing(false, 6, 4, 3)
   },
   backgroundColor: {
     display: "flex",
@@ -51,17 +68,44 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100vh",
     backgroundImage: "linear-gradient(#3A8DFF 0%, #86B9FF 100%)",
     opacity: "0.85",
-    // [theme.breakpoints.only('mdCustom')]: {
-    //   width: 4},
+    width: 'auto'
+
+      // [theme.breakpoints.only("xs")]: {
+      //   width: false},
+      // [theme.breakpoints.only("s")]: {
+      //     width: 6},
+      // [theme.breakpoints.only("mdCustom")]: {
+      //   width: 4},
+      //   [theme.breakpoints.only("lg")]: {
+      //     width: 3},
+      // width: theme.spacing(false, 6, 4, 3)
   },
   paper: {
     margin: theme.spacing(8, 4),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    // [theme.breakpoints.only('mdCustom')]: {
+    // width: theme.spacing(false, 6, 4, 3)
+    // [theme.breakpoints.only("xs")]: {
+    //   width: 12},
+    // [theme.breakpoints.only("s")]: {
+    //     width: 6},
+    // [theme.breakpoints.only("mdCustom")]: {
     //   width: 8},
+      // [theme.breakpoints.only("lg")]: {
+      //   width: 9},
   },
+  formContainer: {
+    //  width: theme.spacing(false, 6, 4, 3)
+    // [theme.breakpoints.only("xs")]: {
+    //   width: 12},
+    // [theme.breakpoints.only("s")]: {
+    //     width: 6},
+    // [theme.breakpoints.only("mdCustom")]: {
+    //   width: 8},
+    //   [theme.breakpoints.only("lg")]: {
+    //     width: 9},
+  }
   // avatar: {
   //   margin: theme.spacing(1),
   //   backgroundColor: theme.palette.secondary.main,
@@ -79,19 +123,16 @@ export default function UserAccessTwo() {
   const classes = useStyles();
 
   return (
-    <Box  margin="auto">
-      <Grid container component="main" className={classes.root}>
-        <CssBaseline />
-        <Grid item xs={false} sm={6} md={4} lg={3} className={classes.image}>
-          <Box xs={false} sm={6} md={4} lg={3} className={classes.backgroundColor}></Box>
-        </Grid>
-
-        <Grid item xs={12} sm={6} md={8} lg={9} component={Paper} elevation={6} square>
-          <div className={classes.paper}>
-            <Login />
-          </div>
-        </Grid>
+    <Grid container component="main" className={classes.root}>
+      <CssBaseline />
+      <Grid item xs={false} sm={6} md={5} lg={5} xl={5} className={classes.image}>
+        <Box xs={false} sm={6} md={5} lg={5} xl={5} className={classes.backgroundColor}></Box>
       </Grid>
-    </Box>
+      <Grid item xs={12} sm={6} md={7} lg={7} xl={7} component={Paper} elevation={6} square>
+        <div className={classes.paper}>
+          <Login />
+        </div>
+      </Grid>
+    </Grid>
   );
 }
