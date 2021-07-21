@@ -2,6 +2,24 @@ const router = require("express").Router();
 const { Op } = require("sequelize");
 const { Conversation, Message } = require("../../db/models");
 const onlineUsers = require("../../onlineUsers");
+const jwt = require('jsonwebtoken');
+
+function authenticateToken (req, res, next) {
+  const token = req.headers["x-access-token"]
+
+  // console.log("token", token)
+  if (!token) return res.status(401).send("Access Denied / Unauthorized request");
+
+    try {
+      const decodedToken = jwt.verify(token, process.env.SESSION_SECRET);
+      next()
+    } catch (error) {
+        res.status(400).send("Invalid Token");
+    }
+
+}
+
+
 
 // expects {recipientId, text, conversationId } in body (conversationId will be null if no conversation exists yet)
 router.post("/", async (req, res, next) => {
@@ -56,8 +74,9 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.put("/updated-messages", async (req, res, next) => {
+router.put("/updated-messages", authenticateToken, async (req, res, next) => {
   try {
+
     const userId = req.user.id;
     const { conversationId } = req.body;
 
