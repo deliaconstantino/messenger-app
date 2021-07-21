@@ -37,12 +37,18 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     objectFit: 'cover',
     height: 'auto',
-    width: 'auto'
+    width: 'auto',
+    [theme.breakpoints.up('mdCustom')]: {
+      width: 4},
 
   },
   backgroundColor: {
-    backgroundColor: "rgba(255, 0, 0, 0.4)",
-    opacity: "85%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "100vh",
+    backgroundImage: "linear-gradient(#3A8DFF 0%, #86B9FF 100%)",
+    opacity: "0.85",
   },
   paper: {
     margin: theme.spacing(8, 4),
@@ -70,21 +76,11 @@ export default function UserAccessTwo() {
     <Box  margin="auto">
       <Grid container component="main" className={classes.root}>
         <CssBaseline />
-        <Grid item xs={false} sm={6} md={5} lg={3} className={classes.image}>
-          <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            style={{
-              minHeight: "100vh",
-              backgroundImage: "linear-gradient(#3A8DFF 0%, #86B9FF 100%)",
-              opacity: "0.85",
-            }}
-            >
-          </Box>
+        <Grid item xs={false} sm={6} lg={3} className={classes.image}>
+          <Box className={classes.backgroundColor}></Box>
         </Grid>
 
-        <Grid item xs={12} sm={6} md={7} lg={7} component={Paper} elevation={6} square>
+        <Grid item xs={12} sm={6} mdCustom={8} lg={9} component={Paper} elevation={6} square>
           <div className={classes.paper}>
             <Login />
           </div>
