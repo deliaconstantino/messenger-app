@@ -74,19 +74,13 @@ router.put("/updated-messages", async (req, res, next) => {
                 [Op.not]: userId,
               },
             },
+            { read: false },
           ],
         },
       }
     );
 
-    const messages = await Message.findAll({
-      where: {
-        conversationId: conversationId,
-      },
-      order: [["id", "ASC"]],
-    });
-
-    res.json({ messages, conversationId });
+    res.json({ conversationId });
   } catch (error) {
     next(error);
   }
