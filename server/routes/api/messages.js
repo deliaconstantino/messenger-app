@@ -98,7 +98,14 @@ router.put("/updated-messages", authenticateToken, async (req, res, next) => {
       }
     );
 
-    res.status(200).json({ conversationId });
+    const messages = await Message.findAll({
+      where: {
+        conversationId: conversationId,
+      },
+      order: [["id", "ASC"]],
+    });
+
+    res.status(200).json({ messages, conversationId });
   } catch (error) {
     next(error);
   }

@@ -31,11 +31,12 @@ export const addMessageToStore = (state, payload) => {
   return newState;
 };
 
-export const updateReadStatusInStore = (state, conversationId) => {
+export const updateReadStatusInStore = (state, conversationId, messages) => {
   return state.map(convo => {
     if (convo.id === conversationId) {
       const updatedConvoValues = {
         unreadMessagesCount: 0,
+        messages
       }
       const updatedConvo = { ...convo, ...updatedConvoValues}
       return updatedConvo
