@@ -35,10 +35,10 @@ const useStyles = makeStyles((theme) => ({
   image: {
     backgroundImage: "url(bg-img.png)",
     backgroundRepeat: "no-repeat",
-    // backgroundColor:
-    //   theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    backgroundSize: "cover",
-    backgroundPosition: "center",
+    objectFit: 'cover',
+    height: 'auto',
+    width: 'auto'
+
   },
   backgroundColor: {
     backgroundColor: "rgba(255, 0, 0, 0.4)",
@@ -50,44 +50,46 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
+  // avatar: {
+  //   margin: theme.spacing(1),
+  //   backgroundColor: theme.palette.secondary.main,
+  // },
+  // form: {
+  //   width: "100%", // Fix IE 11 issue.
+  //   marginTop: theme.spacing(1),
+  // },
+  // submit: {
+  //   margin: theme.spacing(3, 0, 2),
+  // },
 }));
 
 export default function UserAccessTwo() {
   const classes = useStyles();
 
   return (
-    <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image}>
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          style={{
-            minHeight: "100vh",
-            backgroundImage: "linear-gradient(#3A8DFF 0%, #86B9FF 100%)",
-            opacity: "0.85",
-          }}
-          >
-        </Box>
-      </Grid>
+    <Box  margin="auto">
+      <Grid container component="main" className={classes.root}>
+        <CssBaseline />
+        <Grid item xs={false} sm={6} md={5} lg={3} className={classes.image}>
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            style={{
+              minHeight: "100vh",
+              backgroundImage: "linear-gradient(#3A8DFF 0%, #86B9FF 100%)",
+              opacity: "0.85",
+            }}
+            >
+          </Box>
+        </Grid>
 
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-          <Login />
-        </div>
+        <Grid item xs={12} sm={6} md={7} lg={7} component={Paper} elevation={6} square>
+          <div className={classes.paper}>
+            <Login />
+          </div>
+        </Grid>
       </Grid>
-    </Grid>
+    </Box>
   );
 }
