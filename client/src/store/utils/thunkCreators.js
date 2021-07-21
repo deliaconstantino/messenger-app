@@ -109,7 +109,7 @@ export const postMessage = (body) => async (dispatch) => {
 export const updateReadStatus = (body) => async (dispatch) => {
   try {
     const { data } = await axios.put("/api/messages/updated-messages", body);
-    dispatch(updateReadMessages(data.conversationId, data.messages))
+    dispatch(updateReadMessages(data.conversationId))
   } catch (error) {
     console.error(error)
   }
