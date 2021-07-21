@@ -15,6 +15,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import Login from "./Login"
 import { SvgIcon } from '@material-ui/core';
 import { AccessAlarm, ThreeDRotation } from '@material-ui/icons';
+// import Background from "./Background"
+// import CustomImageList from "./CustomImageList"
+import "./userAccessStyles.css"
+// import Image from "/UserAccess/bg-img.png"
+// import peopleImg from "../../images/bg-img.png"
+// import CardMedia from '@material-ui/core/CardMedia';
+
+// import { CardMedia } from '@material-ui/core';
 
 
 function Copyright() {
@@ -34,22 +42,50 @@ const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
   },
+// layer: {
+//     backgroundColor: "#3A8DFF",
+//     zIndex: -2,
+//     // filter: "contrast(75%)",
+//     // position: absolute,
+//     top: 0,
+//     left: 0,
+//     // width: 100%,
+//     // height: 100%,
+// },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
-    backgroundRepeat: 'no-repeat',
-    backgroundImage: "linear-gradient(225deg, #3A8DFF 0%, #86B9FF 100%)",
-    opacity: "85%",
-    // backgroundColor:
+    // backgroundImage: `url(UserAccess/bg-img.png)`,
+    // backgroundImage: 'url(https://source.unsplash.com/random)',
+    // backgroundColor: "#3A8DFF",
+    // opacity: .5,
+    // backgroundRepeat: 'no-repeat',
+    // #3A8DFF to #86B9FF
+    // background: "linear-gradient(#3A8DFF, #86B9FF), url('../../images/bg-img.png')",
+    backgroundImage:`url(https://source.unsplash.com/random)) no-repeat, linear-gradient(135deg, #50A684 30%, #115E67 90%)`,
+    // backgroundImage: "linear-gradient(225deg, #3A8DFF 0%, #86B9FF 100%)",
+    // opacity: "85%",
+    // backgroundColor: "linear-gradient(#3A8DFF 30%, #86B9FF 85%)",
     //   theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
-  bubble: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
-    background: "linear-gradient(225deg, #3A8DFF 0%, #86B9FF 100%)",
-    opacity: "85%",
-    // borderRadius: "0 10px 10px 10px"
-  },
+  // layer: {
+  //   // display: block,
+  //   // position: absolute,
+  //   backgroundColor: "rgba(0, 0, 255, 0.3)",
+  //   opacity: .5,
+  //   top: 0,
+  //   bottom: 0,
+  //   left: 0,
+  //   right: 0,
+  // // display: none;
+  // },
+  // bubble: {
+  //   backgroundImage: "linear-gradient(#3A8DFF 30%, #86B9FF 85%)",
+  //   // backgroundImage: 'url(https://source.unsplash.com/random)',
+  //   // background: "linear-gradient(225deg, #3A8DFF 0%, #86B9FF 100%)",
+  //   opacity: "85%",
+  //   // borderRadius: "0 10px 10px 10px"
+  // },
   paper: {
     margin: theme.spacing(8, 4),
     display: 'flex',
@@ -60,6 +96,9 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
+  card: {
+    height: "100px",
+  },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
@@ -69,17 +108,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignInSide() {
+export default function UserAccess() {
   const classes = useStyles();
 
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image}>
+      <Grid item xs={false} sm={4} md={7} className={classes.image} />
+        {/* <div className={classes.background}></div> */}
+        {/* <CustomImageList /> */}
+        {/* <CardMedia
+          className={classes.card}
+          image="../../images/bg-img.png"
+        /> */}
+        {/* <Background /> */}
+        {/* <div className={classes.layer}></div> */}
+        {/* <div className={classes.image}></div> */}
         {/* <SvgIcon>
           <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
         </SvgIcon> */}
-      </Grid>
+      {/* </Grid> */}
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
 

@@ -3,7 +3,7 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchUser } from "./store/utils/thunkCreators";
 import { Home, SnackbarError } from "./components";
-import { UserAccess, Login, Signup } from "./components/UserAccess"
+import { UserAccessTwo, Login, Signup } from "./components/UserAccess"
 
 const Routes = (props) => {
   const { user, fetchUser } = props;
@@ -45,7 +45,7 @@ const Routes = (props) => {
         <Route
           exact
           path="/"
-          render={(props) => (props.user?.id ? <Home /> : <UserAccess />)}
+          render={(props) => (props.user?.id ? <Home /> : <UserAccessTwo />)}
           // render={(props) => (props.user?.id ? <Home /> : <Signup />)}
         />
         <Route path="/home" component={Home} />
