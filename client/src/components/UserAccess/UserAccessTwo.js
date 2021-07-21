@@ -76,7 +76,7 @@ export default function UserAccessTwo() {
           alignItems="center"
           style={{
             minHeight: "100vh",
-            backgroundColor: "#3A8DFF",
+            backgroundImage: "linear-gradient(#3A8DFF 0%, #86B9FF 100%)",
             opacity: "0.85",
           }}
           >
