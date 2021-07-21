@@ -4,6 +4,8 @@ import { BadgeAvatar, ChatContent } from "../Sidebar";
 import { withStyles } from "@material-ui/core/styles";
 import { setActiveChat } from "../../store/activeConversation";
 import { connect } from "react-redux";
+import { updateReadStatus } from "../../store/utils/thunkCreators";
+import BadgeUnread from "./BadgeUnread";
 
 const styles = {
   root: {
@@ -22,14 +24,21 @@ const styles = {
 class Chat extends Component {
   handleClick = async (conversation) => {
     await this.props.setActiveChat(conversation.otherUser.username);
+    const reqBody = {
+      conversationId: conversation.id,
+    };
+    if (conversation.unreadMessagesCount > 0) {
+      await this.props.updateReadStatus(reqBody);
+    }
   };
 
   render() {
-    const { classes } = this.props;
-    const otherUser = this.props.conversation.otherUser;
+    const { classes, conversation } = this.props;
+    const otherUser = conversation.otherUser;
+    const count = conversation.unreadMessagesCount;
     return (
       <Box
-        onClick={() => this.handleClick(this.props.conversation)}
+        onClick={() => this.handleClick(conversation)}
         className={classes.root}
       >
         <BadgeAvatar
@@ -38,7 +47,8 @@ class Chat extends Component {
           online={otherUser.online}
           sidebar={true}
         />
-        <ChatContent conversation={this.props.conversation} />
+        <ChatContent conversation={conversation} />
+        {count > 0 && <BadgeUnread count={count} />}
       </Box>
     );
   }
@@ -48,6 +58,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setActiveChat: (id) => {
       dispatch(setActiveChat(id));
+    },
+    updateReadStatus: (conversationId) => {
+      dispatch(updateReadStatus(conversationId));
     },
   };
 };
