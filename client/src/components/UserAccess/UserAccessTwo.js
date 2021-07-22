@@ -8,6 +8,7 @@ import Link from "@material-ui/core/Link";
 import Login from "./Login";
 import Signup from "./Signup";
 import PhraseBox from "./PhraseBox";
+import Hidden from '@material-ui/core/Hidden';
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
@@ -84,18 +85,26 @@ function UserAccessTwo(props) {
     <Grid container component="main">
       <Grid
         item
+        xs={false}
+        sm={false}
         md={5}
         lg={5}
         xl={5}
         className={classes.image}
       >
         <Box
+          xs={false}
+          sm={false}
           md={5}
           lg={5}
           xl={5}
           className={classes.backgroundColor}
         >
-          <PhraseBox />
+          <Hidden smDown>
+            <PhraseBox />
+          </Hidden>
+
+
         </Box>
       </Grid>
       <Grid
