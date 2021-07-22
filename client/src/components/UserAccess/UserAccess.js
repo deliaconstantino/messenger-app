@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       margin: theme.spacing(6, 0),
     },
-    margin: theme.spacing(16, 0),
+    margin: theme.spacing(12, 0),
   },
 }));
 
