@@ -19,6 +19,18 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     // alignItems: "center",
   },
+  input: {
+    // padding: theme.spacing(1),
+    [theme.breakpoints.down('xs')]: {
+      minWidth: "250px"
+    },
+    [theme.breakpoints.up('sm')]: {
+      minWidth: "300px"
+    },
+    // [theme.breakpoints.up('lg')]: {
+    //   backgroundColor: green[500],
+    // },
+  },
   // root: {
   //   display: 'flex',
   //   flexWrap: 'wrap',
@@ -79,7 +91,11 @@ const Signup = (props) => {
   return (
     <Grid container className={classes.container}>
 
-      <Box >
+      <Box xs={12}
+        sm={6}
+        md={7}
+        lg={7}
+        xl={7}>
       <Box item>
         <Typography>Create an Account</Typography>
       </Box>
@@ -94,6 +110,7 @@ const Signup = (props) => {
                   type="text"
                   fullWidth
                   required
+                  className={classes.input}
                 />
               </FormControl>
             </Grid>
@@ -106,6 +123,7 @@ const Signup = (props) => {
                   name="email"
                   fullWidth
                   required
+                  className={classes.input}
                 />
               </FormControl>
             </Grid>
@@ -119,6 +137,7 @@ const Signup = (props) => {
                   name="password"
                   fullWidth
                   required
+                  className={classes.input}
                 />
                 <FormHelperText>
                   {formErrorMessage.confirmPassword}
@@ -133,7 +152,9 @@ const Signup = (props) => {
                   type="password"
                   inputProps={{ minLength: 6 }}
                   name="confirmPassword"
+                  fullWidth
                   required
+                  className={classes.input}
                 />
                 <FormHelperText>
                   {formErrorMessage.confirmPassword}
