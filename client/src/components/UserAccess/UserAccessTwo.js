@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     justifyContent: "flex-end",
     [theme.breakpoints.down('xs')]: {
-      margin: theme.spacing(1, -2),
+      margin: theme.spacing(1, -1),
     },
   },
   text: {
@@ -65,6 +65,9 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.userAccessButton,
     padding: theme.spacing(1, 6),
     boxShadow: "1px 2px 10px #d3d3d3",
+    [theme.breakpoints.down('xs')]: {
+      padding: theme.spacing(1, 3),
+    },
   },
 }));
 
