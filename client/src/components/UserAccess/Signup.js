@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Grid, FormControl, FormHelperText } from "@material-ui/core";
-// import { makeStyles } from "@material-ui/core/styles";
 import { register } from "../../store/utils/thunkCreators";
 import InputContainer from "./InputContainer";
 import InputField from "./InputField";
 import FormButton from "./FormButton";
-import useStyles from "./useStylesForm"
+import { useStylesForm } from "./useStylesObject"
 
 const Signup = (props) => {
-  const classes = useStyles();
+  const classes = useStylesForm();
   const { register } = props;
   const [formErrorMessage, setFormErrorMessage] = useState({});
 

@@ -1,14 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Grid } from "@material-ui/core";
-// import { makeStyles } from "@material-ui/core/styles";
 import { login } from "../../store/utils/thunkCreators";
 import InputContainer from "./InputContainer";
 import FormButton from "./FormButton";
-import useStyles from "./useStylesForm"
+import { useStylesForm } from "./useStylesObject"
 
 const Login = (props) => {
-  const classes = useStyles();
+  const classes = useStylesForm();
   const { login } = props;
 
   const handleLogin = async (event) => {

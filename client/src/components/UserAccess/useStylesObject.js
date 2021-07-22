@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+export const useStylesForm = makeStyles((theme) => ({
   formGrid: {
     justifyContent: "center",
     alignItems: "center",
@@ -9,4 +9,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default useStyles;
+// export default useStyles;
