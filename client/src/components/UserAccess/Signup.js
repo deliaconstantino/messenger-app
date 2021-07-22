@@ -1,20 +1,12 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Grid, FormControl, FormHelperText } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+// import { makeStyles } from "@material-ui/core/styles";
 import { register } from "../../store/utils/thunkCreators";
 import InputContainer from "./InputContainer";
 import InputField from "./InputField";
 import FormButton from "./FormButton";
-
-const useStyles = makeStyles((theme) => ({
-  formGrid: {
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
-    padding: theme.spacing(2, 0),
-  },
-}));
+import useStyles from "./useStylesForm"
 
 const Signup = (props) => {
   const classes = useStyles();
