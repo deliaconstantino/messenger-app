@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
-import Paper from "@material-ui/core/Paper";
 import Login from "./Login";
 import Signup from "./Signup";
 import Box from "@material-ui/core/Box";
@@ -37,19 +35,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center top",
-    height: "100vh"
+    minHeight: "100vh"
   },
   backgroundColor: {
     backgroundSize: "cover",
     height: "100%",
     backgroundImage: "linear-gradient(#3A8DFF 0%, #86B9FF 100%)",
     opacity: "0.85",
-  },
-  paper: {
-    margin: theme.spacing(8, 4),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
   },
 }));
 
@@ -68,7 +60,6 @@ function UserAccessTwo(props) {
 
   return (
     <Grid container component="main">
-      {/* <CssBaseline /> */}
       <Grid
         item
         md={5}
@@ -90,9 +81,6 @@ function UserAccessTwo(props) {
         md={7}
         lg={7}
         xl={7}
-        component={Paper}
-        // elevation={6}
-        // square
       >
         {showLogin && (
           <Grid container item>
