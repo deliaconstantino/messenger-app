@@ -51,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "flex-end",
   },
   text: {
+    ...theme.typography.loginSignup,
     margin: theme.spacing(2, 2),
   },
 

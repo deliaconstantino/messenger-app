@@ -13,12 +13,16 @@ export const theme = createTheme({
       color: "#3A8DFF",
       letterSpacing: 0,
       textTransform: "none",
+    }, loginSignup: {
+        color: "grey",
+        fontSize: 12,
     }
   },
   overrides: {
     MuiInput: {
       input: {
         fontWeight: "bold",
+        fontSize: 14,
       }
     }
   },
