@@ -18,34 +18,34 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-evenly",
     alignItems: "center",
     padding: theme.spacing(2),
-    [theme.breakpoints.down('xs')]: {
-      margin: theme.spacing(6, 0)
+    [theme.breakpoints.down("xs")]: {
+      margin: theme.spacing(6, 0),
     },
-    margin: theme.spacing(16, 0)
+    margin: theme.spacing(16, 0),
   },
   input: {
     padding: theme.spacing(2, 0),
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down("xs")]: {
       minWidth: "250px",
       padding: theme.spacing(1, 0),
     },
-    [theme.breakpoints.up('sm')]: {
-      minWidth: "400px"
+    [theme.breakpoints.up("sm")]: {
+      minWidth: "400px",
     },
-    [theme.breakpoints.up('md')]: {
-      minWidth: "500px"
+    [theme.breakpoints.up("md")]: {
+      minWidth: "500px",
     },
   },
   formGrid: {
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    padding: theme.spacing(2, 0)
+    padding: theme.spacing(2, 0),
   },
   button: {
     margin: theme.spacing(2),
     padding: theme.spacing(1, 6),
-  }
+  },
 }));
 
 const Login = (props) => {
@@ -62,11 +62,7 @@ const Login = (props) => {
 
   return (
     <Grid container className={classes.container}>
-      <Box xs={12}
-        sm={6}
-        md={7}
-        lg={7}
-        xl={7}>
+      <Box xs={12} sm={6} md={7} lg={7} xl={7}>
         <Box item>
           <Typography variant="h5">Welcome back!</Typography>
         </Box>
@@ -97,7 +93,13 @@ const Login = (props) => {
               </FormControl>
             </Grid>
             <Grid>
-              <Button type="submit" variant="contained" size="large" color="primary" className={classes.button}>
+              <Button
+                type="submit"
+                variant="contained"
+                size="large"
+                color="primary"
+                className={classes.button}
+              >
                 Login
               </Button>
             </Grid>
@@ -117,36 +119,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(null, mapDispatchToProps)(Login);
-
-
-{/* <Grid container justifyContent="center">
-      <Box>
-        <form onSubmit={handleLogin}>
-          <Grid>
-            <Grid>
-              <FormControl margin="normal" required>
-                <TextField
-                  aria-label="username"
-                  label="Username"
-                  name="username"
-                  type="text"
-                />
-              </FormControl>
-            </Grid>
-            <FormControl margin="normal" required>
-              <TextField
-                label="password"
-                aria-label="password"
-                type="password"
-                name="password"
-              />
-            </FormControl>
-            <Grid>
-              <Button type="submit" variant="contained" size="large">
-                Login
-              </Button>
-            </Grid>
-          </Grid>
-        </form>
-      </Box>
-    </Grid> */}
