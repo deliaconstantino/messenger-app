@@ -3,7 +3,7 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchUser } from "./store/utils/thunkCreators";
 import { Home, SnackbarError } from "./components";
-import { UserAccessTwo, Login, Signup } from "./components/UserAccess";
+import { UserAccessTwo } from "./components/UserAccess";
 
 const Routes = (props) => {
   const { user, fetchUser } = props;
