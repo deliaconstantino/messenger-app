@@ -5,23 +5,18 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  box: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
-  },
   text: {
     ...theme.typography.phrase,
-    // justifyContent: "center",
   }
 }));
 
 const PhraseBox = () => {
   const classes = useStyles();
   return (
-    <Grid className={classes.box}>
-      <Typography className={classes.text}>Converse with anyone <br/>with any language</Typography>
-    </Grid>
+    <>
+      <Typography item className={classes.text}>Converse with anyone</Typography>
+      <Typography item className={classes.text}>with any language</Typography>
+    </>
   );
 };
 

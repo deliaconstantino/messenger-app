@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: "url(bg-img.png)",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    backgroundPosition: "center top",
+    backgroundPosition: "center",
     minHeight: "100vh"
   },
   backgroundColor: {
@@ -100,11 +100,16 @@ function UserAccessTwo(props) {
           xl={5}
           className={classes.backgroundColor}
         >
-          <Hidden smDown>
+        <Hidden smDown>
+          <Grid container spacing={0}
+            direction="column"
+            alignItems="center"
+            justify="center"
+            style={{ minHeight: '100vh' }}
+            >
             <PhraseBox />
-          </Hidden>
-
-
+          </Grid>
+        </Hidden>
         </Box>
       </Grid>
       <Grid
