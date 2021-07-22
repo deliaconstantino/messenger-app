@@ -10,22 +10,9 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { login } from "../../store/utils/thunkCreators";
-import InputField from "./InputField";
+import InputContainer from "./InputContainer";
 
 const useStyles = makeStyles((theme) => ({
-  // input: {
-  //   padding: theme.spacing(2, 0),
-  //   [theme.breakpoints.down("xs")]: {
-  //     minWidth: "250px",
-  //     padding: theme.spacing(1, 0),
-  //   },
-  //   [theme.breakpoints.up("sm")]: {
-  //     minWidth: "400px",
-  //   },
-  //   [theme.breakpoints.up("md")]: {
-  //     minWidth: "500px",
-  //   },
-  // },
   formGrid: {
     justifyContent: "center",
     alignItems: "center",
@@ -51,31 +38,37 @@ const Login = (props) => {
   };
 
   return (
-        <form onSubmit={handleLogin}>
-          <Grid item container className={classes.formGrid}>
-            <Grid>
-              <FormControl margin="normal">
-                <InputField ariaLabel="username" label="Username" name="username" type="text" />
-              </FormControl>
-            </Grid>
-            <Grid>
-              <FormControl margin="normal">
-                <InputField ariaLabel="password" label="Password" name="password" type="password" />
-              </FormControl>
-            </Grid>
-            <Grid>
-              <Button
-                type="submit"
-                variant="contained"
-                size="large"
-                color="primary"
-                className={classes.button}
-              >
-                Login
-              </Button>
-            </Grid>
-          </Grid>
-        </form>
+    <form onSubmit={handleLogin}>
+      <Grid item container className={classes.formGrid}>
+        <InputContainer
+          inputField={{
+            ariaLabel: "username",
+            label: "Username",
+            name: "username",
+            type: "text",
+          }}
+        />
+        <InputContainer
+          inputField={{
+            ariaLabel: "password",
+            label: "Password",
+            name: "password",
+            type: "password",
+          }}
+        />
+        <Grid>
+          <Button
+            type="submit"
+            variant="contained"
+            size="large"
+            color="primary"
+            className={classes.button}
+          >
+            Login
+          </Button>
+        </Grid>
+      </Grid>
+    </form>
   );
 };
 
