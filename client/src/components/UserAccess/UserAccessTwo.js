@@ -101,11 +101,12 @@ function UserAccessTwo(props) {
           className={classes.backgroundColor}
         >
         <Hidden smDown>
-          <Grid container spacing={0}
+          <Grid container
+            spacing={0}
             direction="column"
             alignItems="center"
             justify="center"
-            style={{ minHeight: '100vh' }}
+            style={{ minHeight: '75vh', position: 'relative' }}
             >
             <PhraseBox />
           </Grid>
