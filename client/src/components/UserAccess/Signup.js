@@ -13,40 +13,29 @@ import { makeStyles } from "@material-ui/core/styles";
 import { register } from "../../store/utils/thunkCreators";
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    display: "flex",
-    direction: "column",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    padding: theme.spacing(2),
-    [theme.breakpoints.down('xs')]: {
-      margin: theme.spacing(6, 0)
-    },
-    margin: theme.spacing(12, 0)
-  },
   input: {
     padding: theme.spacing(2, 0),
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down("xs")]: {
       minWidth: "250px",
       padding: theme.spacing(1, 0),
     },
-    [theme.breakpoints.up('sm')]: {
-      minWidth: "400px"
+    [theme.breakpoints.up("sm")]: {
+      minWidth: "400px",
     },
-    [theme.breakpoints.up('md')]: {
-      minWidth: "500px"
+    [theme.breakpoints.up("md")]: {
+      minWidth: "500px",
     },
   },
   formGrid: {
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    padding: theme.spacing(2, 0)
+    padding: theme.spacing(2, 0),
   },
   button: {
     margin: theme.spacing(2),
     padding: theme.spacing(1, 6),
-  }
+  },
 }));
 
 const Signup = (props) => {
@@ -70,15 +59,6 @@ const Signup = (props) => {
   };
 
   return (
-    <Grid container className={classes.container}>
-      <Box xs={12}
-        sm={6}
-        md={7}
-        lg={7}
-        xl={7}>
-      <Box item>
-        <Typography variant="h5">Create an Account</Typography>
-      </Box>
         <form onSubmit={handleRegister}>
           <Grid item container className={classes.formGrid}>
             <Grid>
@@ -141,13 +121,17 @@ const Signup = (props) => {
                 </FormHelperText>
               </FormControl>
             </Grid>
-            <Button type="submit" variant="contained" size="large" color="primary" className={classes.button}>
+            <Button
+              type="submit"
+              variant="contained"
+              size="large"
+              color="primary"
+              className={classes.button}
+            >
               Create
             </Button>
           </Grid>
         </form>
-      </Box>
-    </Grid>
   );
 };
 

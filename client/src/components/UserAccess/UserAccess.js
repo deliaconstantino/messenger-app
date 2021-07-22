@@ -55,6 +55,17 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "75vh",
     position: "relative",
   },
+  formContainer: {
+    display: "flex",
+    direction: "column",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    padding: theme.spacing(2),
+    [theme.breakpoints.down("xs")]: {
+      margin: theme.spacing(6, 0),
+    },
+    margin: theme.spacing(16, 0),
+  },
 }));
 
 function UserAccess(props) {
@@ -117,8 +128,17 @@ function UserAccess(props) {
           </Grid>
         )}
         <Box>
-          {showLogin && <Login />}
-          {showSignup && <Signup />}
+          <Grid container className={classes.formContainer}>
+            <Box xs={12} sm={6} md={7} lg={7} xl={7}>
+              <Box item>
+                <Typography variant="h5">
+                  {showLogin ? "Welcome back!" : "Create an Account" }
+                </Typography>
+              </Box>
+              {showLogin && <Login />}
+              {showSignup && <Signup />}
+            </Box>
+          </Grid>
         </Box>
       </Grid>
     </Grid>

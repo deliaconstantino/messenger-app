@@ -12,17 +12,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { login } from "../../store/utils/thunkCreators";
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    display: "flex",
-    direction: "column",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    padding: theme.spacing(2),
-    [theme.breakpoints.down("xs")]: {
-      margin: theme.spacing(6, 0),
-    },
-    margin: theme.spacing(16, 0),
-  },
   input: {
     padding: theme.spacing(2, 0),
     [theme.breakpoints.down("xs")]: {
@@ -61,11 +50,6 @@ const Login = (props) => {
   };
 
   return (
-    <Grid container className={classes.container}>
-      <Box xs={12} sm={6} md={7} lg={7} xl={7}>
-        <Box item>
-          <Typography variant="h5">Welcome back!</Typography>
-        </Box>
         <form onSubmit={handleLogin}>
           <Grid item container className={classes.formGrid}>
             <Grid>
@@ -105,8 +89,6 @@ const Login = (props) => {
             </Grid>
           </Grid>
         </form>
-      </Box>
-    </Grid>
   );
 };
 
