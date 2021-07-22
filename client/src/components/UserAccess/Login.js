@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import {
   Grid,
@@ -12,7 +11,6 @@ import {
 import { login } from "../../store/utils/thunkCreators";
 
 const Login = (props) => {
-  const history = useHistory();
   const { login } = props;
 
   const handleLogin = async (event) => {
@@ -26,10 +24,6 @@ const Login = (props) => {
   return (
     <Grid container justifyContent="center">
       <Box>
-        <Grid container item>
-          <Typography>Need to register?</Typography>
-          <Button onClick={() => history.push("/register")}>Register</Button>
-        </Grid>
         <form onSubmit={handleLogin}>
           <Grid>
             <Grid>

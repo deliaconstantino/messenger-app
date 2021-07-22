@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100vh",
     backgroundImage: "linear-gradient(#3A8DFF 0%, #86B9FF 100%)",
     opacity: "0.85",
-    width: 'auto'
+    width: "auto",
   },
   paper: {
     margin: theme.spacing(8, 4),
@@ -56,10 +56,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function UserAccessTwo(props) {
+  const history = useHistory();
   const classes = useStyles();
 
-  const [showLogin, updateShowLogin] = useState(props.showLogin)
-  const [showSignup, updateShowSignup] = useState(props.showSignup)
+  const [showLogin, updateShowLogin] = useState(props.showLogin);
+  const [showSignup, updateShowSignup] = useState(props.showSignup);
 
   const { user } = props;
 
@@ -70,13 +71,66 @@ function UserAccessTwo(props) {
   return (
     <Grid container component="main">
       <CssBaseline />
-      <Grid item xs={false} sm={6} md={5} lg={5} xl={5} className={classes.image}>
-        <Box xs={false} sm={6} md={5} lg={5} xl={5} className={classes.backgroundColor}></Box>
+      <Grid
+        item
+        xs={false}
+        sm={6}
+        md={5}
+        lg={5}
+        xl={5}
+        className={classes.image}
+      >
+        <Box
+          xs={false}
+          sm={6}
+          md={5}
+          lg={5}
+          xl={5}
+          className={classes.backgroundColor}
+        ></Box>
       </Grid>
-      <Grid item xs={12} sm={6} md={7} lg={7} xl={7} component={Paper} elevation={6} square>
+      <Grid
+        item
+        xs={12}
+        sm={6}
+        md={7}
+        lg={7}
+        xl={7}
+        component={Paper}
+        elevation={6}
+        square
+      >
+        {showLogin && (
+          <Grid container item>
+            <Typography>Need to register?</Typography>
+            <Button
+              onClick={() => {
+                updateShowLogin(false);
+                updateShowSignup(true);
+                history.push("/register");
+              }}
+            >
+              Register
+            </Button>
+          </Grid>
+        )}
+        {showSignup && (
+          <Grid container item>
+            <Typography>Need to log in?</Typography>
+            <Button
+              onClick={() => {
+                updateShowLogin(true);
+                updateShowSignup(false);
+                history.push("/login");
+              }}
+            >
+              Login
+            </Button>
+          </Grid>
+        )}
         <Box className={classes.paper}>
-          {showLogin ? <Login /> : null}
-          {showSignup ? <Signup /> : null}
+          {showLogin && <Login />}
+          {showSignup && <Signup />}
         </Box>
       </Grid>
     </Grid>

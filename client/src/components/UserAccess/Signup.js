@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Redirect, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import {
   Grid,
@@ -13,7 +12,6 @@ import {
 import { register } from "../../store/utils/thunkCreators";
 
 const Signup = (props) => {
-  const history = useHistory();
   const { register } = props;
   const [formErrorMessage, setFormErrorMessage] = useState({});
 
@@ -35,10 +33,6 @@ const Signup = (props) => {
   return (
     <Grid container justifyContent="center">
       <Box>
-        <Grid container item>
-          <Typography>Need to log in?</Typography>
-          <Button onClick={() => history.push("/login")}>Login</Button>
-        </Grid>
         <form onSubmit={handleRegister}>
           <Grid>
             <Grid>
