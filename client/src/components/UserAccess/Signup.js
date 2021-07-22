@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import {
-  Grid,
-  Box,
-  Typography,
-  Button,
-  FormControl,
-  TextField,
-  FormHelperText,
-} from "@material-ui/core";
+import { Grid, FormControl, FormHelperText } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { register } from "../../store/utils/thunkCreators";
 import InputContainer from "./InputContainer";
