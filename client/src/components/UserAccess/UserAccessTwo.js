@@ -115,7 +115,7 @@ function UserAccessTwo(props) {
         )}
         {showSignup && (
           <Grid container item className={classes.buttonGrid}>
-            <Typography className={classes.text}>Need to log in?</Typography>
+            <Typography className={classes.text}>Already have an account?</Typography>
             <Button className={classes.button}
               onClick={() => {
                 updateShowLogin(true);
