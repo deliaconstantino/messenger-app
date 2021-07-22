@@ -74,7 +74,7 @@ function UserAccessTwo(props) {
       <Grid
         item
         xs={false}
-        sm={6}
+        sm={false}
         md={5}
         lg={5}
         xl={5}
@@ -82,7 +82,7 @@ function UserAccessTwo(props) {
       >
         <Box
           xs={false}
-          sm={6}
+          sm={false}
           md={5}
           lg={5}
           xl={5}
@@ -92,7 +92,7 @@ function UserAccessTwo(props) {
       <Grid
         item
         xs={12}
-        sm={6}
+        sm={12}
         md={7}
         lg={7}
         xl={7}

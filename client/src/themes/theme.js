@@ -14,7 +14,7 @@ export const theme = createTheme({
     MuiInput: {
       input: {
         fontWeight: "bold",
-        minWidth: "300px"
+        // minWidth: "300px"
       }
     }
   },
