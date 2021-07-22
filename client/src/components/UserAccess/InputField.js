@@ -19,9 +19,9 @@ const useStyles = makeStyles((theme) => ({
 
 const InputField= props => {
   const classes = useStyles();
-  const { ariaLabel, label, name, type } = props;
+  const { ariaLabel, label, name, type } = props.inputFields;
 
-  if (props.inputProps) {
+  if (props.inputFields.inputProps) {
     return (
       <TextField
         aria-label={ariaLabel}
