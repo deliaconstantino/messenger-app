@@ -17,11 +17,12 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     direction: "column",
     justifyContent: "center",
-    padding: theme.spacing(4),
+    padding: theme.spacing(2),
+    // margin: theme.spacing(8, 0)
     // alignItems: "center",
   },
   input: {
-    // padding: theme.spacing(1),
+    padding: theme.spacing(2, 0),
     [theme.breakpoints.down('xs')]: {
       minWidth: "250px"
     },
@@ -35,37 +36,17 @@ const useStyles = makeStyles((theme) => ({
     //   backgroundColor: green[500],
     // },
   },
-  // root: {
-  //   display: 'flex',
-  //   flexWrap: 'wrap',
-  // },
-  // textField: {
-  //   marginLeft: theme.spacing(1),
-  //   marginRight: theme.spacing(1),
-  //   width: '25ch',
-  // },
-  // form: {
-  //   display: "flex",
-  //   marginRight: '10',
-  //   marginLeft: "10",
-  //   width: "100%",
-  //   // minWidth: "auto",
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   flexDirection: "column"
-  // },
   formGrid: {
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
+    padding: theme.spacing(2, 0)
   },
   button: {
-    margin: theme.spacing(4),
+    margin: theme.spacing(2),
     padding: theme.spacing(1, 6),
   }
 }));
-
-
 
 const Signup = (props) => {
   const classes = useStyles();
@@ -89,7 +70,6 @@ const Signup = (props) => {
 
   return (
     <Grid container className={classes.container}>
-
       <Box xs={12}
         sm={6}
         md={7}
