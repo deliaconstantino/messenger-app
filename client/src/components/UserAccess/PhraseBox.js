@@ -18,7 +18,7 @@ const PhraseBox = () => {
   const classes = useStyles();
   return (
     <>
-      <Avatar alt="Remy Sharp" src="whiteBubble.png" className={classes.bubble} />
+      <Avatar item alt="chat bubble" src="whiteBubble.png" className={classes.bubble} />
       <Typography item className={classes.text}>Converse with anyone</Typography>
       <Typography item className={classes.text}>with any language</Typography>
     </>
