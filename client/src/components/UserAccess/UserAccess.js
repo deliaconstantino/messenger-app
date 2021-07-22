@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function UserAccessTwo(props) {
+function UserAccess(props) {
   const history = useHistory();
   const classes = useStyles();
 
@@ -131,4 +131,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(UserAccessTwo);
+export default connect(mapStateToProps)(UserAccess);
