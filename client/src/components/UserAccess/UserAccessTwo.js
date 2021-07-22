@@ -7,6 +7,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Login from "./Login";
 import Signup from "./Signup";
+import PhraseBox from "./PhraseBox";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
@@ -16,6 +17,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Redirect, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import "./userAccessStyles.css";
+
 
 function Copyright() {
   return (
@@ -92,7 +94,9 @@ function UserAccessTwo(props) {
           lg={5}
           xl={5}
           className={classes.backgroundColor}
-        ></Box>
+        >
+          <PhraseBox />
+        </Box>
       </Grid>
       <Grid
         item
