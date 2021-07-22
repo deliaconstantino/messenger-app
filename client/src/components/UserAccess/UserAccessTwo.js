@@ -11,6 +11,7 @@ import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
+import { shadows } from '@material-ui/system';
 import { makeStyles } from "@material-ui/core/styles";
 import { Redirect, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
@@ -43,6 +44,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: "linear-gradient(#3A8DFF 0%, #86B9FF 100%)",
     opacity: "0.85",
   },
+  button: {
+    ...theme.typography.userAccessButton,
+    padding: theme.spacing(1, 5),
+    boxShadow: "1px 2px 10px #d3d3d3",
+
+  }
 }));
 
 function UserAccessTwo(props) {
@@ -99,7 +106,7 @@ function UserAccessTwo(props) {
         {showSignup && (
           <Grid container item>
             <Typography>Need to log in?</Typography>
-            <Button
+            <Button size="large" className={classes.button}
               onClick={() => {
                 updateShowLogin(true);
                 updateShowSignup(false);
