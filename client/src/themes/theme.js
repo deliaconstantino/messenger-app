@@ -11,6 +11,8 @@ export const theme = createTheme({
     },
     userAccessButton: {
       color: "#3A8DFF",
+      letterSpacing: 0,
+      textTransform: "none",
     }
   },
   overrides: {
