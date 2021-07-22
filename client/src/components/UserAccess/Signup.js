@@ -11,21 +11,9 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { register } from "../../store/utils/thunkCreators";
+import InputField from "./InputField";
 
 const useStyles = makeStyles((theme) => ({
-  input: {
-    padding: theme.spacing(2, 0),
-    [theme.breakpoints.down("xs")]: {
-      minWidth: "250px",
-      padding: theme.spacing(1, 0),
-    },
-    [theme.breakpoints.up("sm")]: {
-      minWidth: "400px",
-    },
-    [theme.breakpoints.up("md")]: {
-      minWidth: "500px",
-    },
-  },
   formGrid: {
     justifyContent: "center",
     alignItems: "center",
@@ -63,42 +51,17 @@ const Signup = (props) => {
           <Grid item container className={classes.formGrid}>
             <Grid>
               <FormControl>
-                <TextField
-                  aria-label="username"
-                  label="Username"
-                  name="username"
-                  type="text"
-                  fullWidth
-                  required
-                  className={classes.input}
-                />
+                <InputField ariaLabel="username" label="Username" name="username" type="text" />
               </FormControl>
             </Grid>
             <Grid>
               <FormControl>
-                <TextField
-                  label="E-mail address"
-                  aria-label="e-mail address"
-                  type="email"
-                  name="email"
-                  fullWidth
-                  required
-                  className={classes.input}
-                />
+                <InputField ariaLabel="e-mail address" label="E-mail address" name="email" type="email" />
               </FormControl>
             </Grid>
             <Grid>
               <FormControl error={!!formErrorMessage.confirmPassword}>
-                <TextField
-                  aria-label="password"
-                  label="Password"
-                  type="password"
-                  inputProps={{ minLength: 6 }}
-                  name="password"
-                  fullWidth
-                  required
-                  className={classes.input}
-                />
+                <InputField ariaLabel="confirm password" label="Confirm Password" name="confirmPassword" type="password" inputProps={{ minLength: 6 }}/>
                 <FormHelperText>
                   {formErrorMessage.confirmPassword}
                 </FormHelperText>
@@ -106,16 +69,7 @@ const Signup = (props) => {
             </Grid>
             <Grid>
               <FormControl error={!!formErrorMessage.confirmPassword}>
-                <TextField
-                  label="Confirm Password"
-                  aria-label="confirm password"
-                  type="password"
-                  inputProps={{ minLength: 6 }}
-                  name="confirmPassword"
-                  fullWidth
-                  required
-                  className={classes.input}
-                />
+                <InputField ariaLabel="confirm password" label="Confirm Password" name="confirmPassword" type="password" inputProps={{ minLength: 6 }}/>
                 <FormHelperText>
                   {formErrorMessage.confirmPassword}
                 </FormHelperText>

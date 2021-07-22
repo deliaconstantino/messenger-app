@@ -10,21 +10,22 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { login } from "../../store/utils/thunkCreators";
+import InputField from "./InputField";
 
 const useStyles = makeStyles((theme) => ({
-  input: {
-    padding: theme.spacing(2, 0),
-    [theme.breakpoints.down("xs")]: {
-      minWidth: "250px",
-      padding: theme.spacing(1, 0),
-    },
-    [theme.breakpoints.up("sm")]: {
-      minWidth: "400px",
-    },
-    [theme.breakpoints.up("md")]: {
-      minWidth: "500px",
-    },
-  },
+  // input: {
+  //   padding: theme.spacing(2, 0),
+  //   [theme.breakpoints.down("xs")]: {
+  //     minWidth: "250px",
+  //     padding: theme.spacing(1, 0),
+  //   },
+  //   [theme.breakpoints.up("sm")]: {
+  //     minWidth: "400px",
+  //   },
+  //   [theme.breakpoints.up("md")]: {
+  //     minWidth: "500px",
+  //   },
+  // },
   formGrid: {
     justifyContent: "center",
     alignItems: "center",
@@ -53,27 +54,13 @@ const Login = (props) => {
         <form onSubmit={handleLogin}>
           <Grid item container className={classes.formGrid}>
             <Grid>
-              <FormControl margin="normal" required>
-                <TextField
-                  aria-label="username"
-                  label="Username"
-                  name="username"
-                  type="text"
-                  fullWidth
-                  className={classes.input}
-                />
+              <FormControl margin="normal">
+                <InputField ariaLabel="username" label="Username" name="username" type="text" />
               </FormControl>
             </Grid>
             <Grid>
-              <FormControl margin="normal" required>
-                <TextField
-                  label="password"
-                  aria-label="password"
-                  type="password"
-                  name="password"
-                  fullWidth
-                  className={classes.input}
-                />
+              <FormControl margin="normal">
+                <InputField ariaLabel="password" label="Password" name="password" type="password" />
               </FormControl>
             </Grid>
             <Grid>
