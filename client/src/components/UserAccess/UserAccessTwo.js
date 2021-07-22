@@ -46,9 +46,12 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonGrid: {
     display: "flex",
-    margin: theme.spacing(1, -5),
+    margin: theme.spacing(1, -3),
     flexDirection: "row",
     justifyContent: "flex-end",
+    [theme.breakpoints.down('xs')]: {
+      margin: theme.spacing(1, -2),
+    },
   },
   text: {
     ...theme.typography.loginSignup,

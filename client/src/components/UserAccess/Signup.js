@@ -16,15 +16,19 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     direction: "column",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
+    alignItems: "center",
     padding: theme.spacing(2),
-    // margin: theme.spacing(8, 0)
-    // alignItems: "center",
+    [theme.breakpoints.down('xs')]: {
+      margin: theme.spacing(6, 0)
+    },
+    margin: theme.spacing(12, 0)
   },
   input: {
     padding: theme.spacing(2, 0),
     [theme.breakpoints.down('xs')]: {
-      minWidth: "250px"
+      minWidth: "250px",
+      padding: theme.spacing(1, 0),
     },
     [theme.breakpoints.up('sm')]: {
       minWidth: "400px"
@@ -32,9 +36,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       minWidth: "500px"
     },
-    // [theme.breakpoints.up('lg')]: {
-    //   backgroundColor: green[500],
-    // },
   },
   formGrid: {
     justifyContent: "center",
@@ -76,7 +77,7 @@ const Signup = (props) => {
         lg={7}
         xl={7}>
       <Box item>
-        <Typography variant="h4">Create an Account</Typography>
+        <Typography variant="h5">Create an Account</Typography>
       </Box>
         <form onSubmit={handleRegister}>
           <Grid item container className={classes.formGrid}>
