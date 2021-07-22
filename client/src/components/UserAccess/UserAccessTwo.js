@@ -71,16 +71,12 @@ function UserAccessTwo(props) {
       {/* <CssBaseline /> */}
       <Grid
         item
-        // xs={false}
-        // sm={false}
         md={5}
         lg={5}
         xl={5}
         className={classes.image}
       >
         <Box
-          // xs={false}
-          // sm={false}
           md={5}
           lg={5}
           xl={5}
