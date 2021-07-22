@@ -59,9 +59,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     flexDirection: "column",
   },
-  // button: {
-  //   color: "white"
-  // }
+  button: {
+    margin: theme.spacing(4),
+    padding: theme.spacing(1, 6),
+  }
 }));
 
 
@@ -95,7 +96,7 @@ const Signup = (props) => {
         lg={7}
         xl={7}>
       <Box item>
-        <Typography variant="h4">Create an Account</Typography>
+        <Typography variant="h5">Create an Account</Typography>
       </Box>
         <form onSubmit={handleRegister}>
           <Grid item container className={classes.formGrid} rowSpacing={1}>
@@ -159,7 +160,7 @@ const Signup = (props) => {
                 </FormHelperText>
               </FormControl>
             </Grid>
-            <Button type="submit" variant="contained" size="large" color="primary">
+            <Button type="submit" variant="contained" size="large" color="primary" className={classes.button}>
               Create
             </Button>
           </Grid>
