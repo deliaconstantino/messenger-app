@@ -1,17 +1,11 @@
 import React, { useState } from "react";
-import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
 import Login from "./Login";
 import Signup from "./Signup";
 import PhraseBox from "./PhraseBox";
 import Hidden from '@material-ui/core/Hidden';
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { shadows } from '@material-ui/system';
 import { makeStyles } from "@material-ui/core/styles";
@@ -133,7 +127,7 @@ function UserAccessTwo(props) {
             </Button>
           </Grid>
         )}
-        <Box className={classes.paper}>
+        <Box>
           {showLogin && <Login />}
           {showSignup && <Signup />}
         </Box>
