@@ -122,16 +122,16 @@ function UserAccessTwo(props) {
         xl={7}
       >
         {showLogin && (
-          <Grid container item >
-            <Typography>Need to register?</Typography>
-            <Button
+          <Grid container item className={classes.buttonGrid}>
+            <Typography className={classes.text}>Don’t have an account?</Typography>
+            <Button className={classes.button}
               onClick={() => {
                 updateShowLogin(false);
                 updateShowSignup(true);
                 history.push("/register");
               }}
             >
-              Register
+              Create Account
             </Button>
           </Grid>
         )}
