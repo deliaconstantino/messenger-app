@@ -16,6 +16,10 @@ export const theme = createTheme({
     }, loginSignup: {
         color: "grey",
         fontSize: 12,
+    },
+    phrase: {
+      color: "white",
+      fontSize: "20px"
     }
   },
   overrides: {
