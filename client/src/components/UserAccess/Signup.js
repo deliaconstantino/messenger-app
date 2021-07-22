@@ -96,7 +96,7 @@ const Signup = (props) => {
         lg={7}
         xl={7}>
       <Box item>
-        <Typography variant="h5">Create an Account</Typography>
+        <Typography variant="h4">Create an Account</Typography>
       </Box>
         <form onSubmit={handleRegister}>
           <Grid item container className={classes.formGrid} rowSpacing={1}>
