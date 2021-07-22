@@ -53,13 +53,7 @@ const Login = (props) => {
             type: "password",
           }}
         />
-        <FormButton
-          type="submit"
-          variant="contained"
-          size="large"
-          color="primary"
-          textValue="Login"
-        />
+        <FormButton textValue="Login" />
       </Grid>
     </form>
   );

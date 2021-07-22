@@ -12,14 +12,14 @@ const useStyles = makeStyles((theme) => ({
 const FormButton = (props) => {
   const classes = useStyles();
 
-  const { type, variant, size, color, textValue } = props
+  const { textValue } = props
   return (
     <Grid>
       <Button
-        type={type}
-        variant={variant}
-        size={size}
-        color={color}
+        type="submit"
+        variant="contained"
+        size="large"
+        color="primary"
         className={classes.button}
       >
         {textValue}

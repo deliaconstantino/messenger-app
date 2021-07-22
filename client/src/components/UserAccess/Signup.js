@@ -13,6 +13,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { register } from "../../store/utils/thunkCreators";
 import InputContainer from "./InputContainer";
 import InputField from "./InputField";
+import FormButton from "./FormButton";
 
 const useStyles = makeStyles((theme) => ({
   formGrid: {
@@ -20,10 +21,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     flexDirection: "column",
     padding: theme.spacing(2, 0),
-  },
-  button: {
-    margin: theme.spacing(2),
-    padding: theme.spacing(1, 6),
   },
 }));
 
@@ -94,15 +91,7 @@ const Signup = (props) => {
             <FormHelperText>{formErrorMessage.confirmPassword}</FormHelperText>
           </FormControl>
         </Grid>
-        <Button
-          type="submit"
-          variant="contained"
-          size="large"
-          color="primary"
-          className={classes.button}
-        >
-          Create
-        </Button>
+        <FormButton textValue="Create" />
       </Grid>
     </form>
   );
