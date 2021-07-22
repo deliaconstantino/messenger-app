@@ -46,17 +46,17 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonGrid: {
     display: "flex",
-    margin: theme.spacing(2, -5),
+    margin: theme.spacing(1, -5),
     flexDirection: "row",
     justifyContent: "flex-end",
   },
   text: {
-
+    margin: theme.spacing(2, 2),
   },
 
   button: {
     ...theme.typography.userAccessButton,
-    padding: theme.spacing(1, 5),
+    padding: theme.spacing(1, 6),
     boxShadow: "1px 2px 10px #d3d3d3",
   },
 }));
@@ -115,7 +115,7 @@ function UserAccessTwo(props) {
         {showSignup && (
           <Grid container item className={classes.buttonGrid}>
             <Typography className={classes.text}>Need to log in?</Typography>
-            <Button size="large" className={classes.button}
+            <Button className={classes.button}
               onClick={() => {
                 updateShowLogin(true);
                 updateShowSignup(false);
