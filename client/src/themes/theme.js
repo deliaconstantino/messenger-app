@@ -8,13 +8,15 @@ export const theme = createTheme({
       textTransform: "none",
       letterSpacing: 0,
       fontWeight: "bold"
+    },
+    userAccessButton: {
+      color: "#3A8DFF",
     }
   },
   overrides: {
     MuiInput: {
       input: {
         fontWeight: "bold",
-        // minWidth: "300px"
       }
     }
   },
