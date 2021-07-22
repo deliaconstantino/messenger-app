@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.phrase,
   },
   bubble: {
-
+    padding: theme.spacing(4)
   }
 }));
 
