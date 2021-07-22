@@ -48,39 +48,63 @@ const Signup = (props) => {
   };
 
   return (
-        <form onSubmit={handleRegister}>
-          <Grid item container className={classes.formGrid}>
-
-            <InputContainer inputField={{ariaLabel: "username", label: "Username", name: "username", type: "text" }}/>
-            <InputContainer inputField={{ariaLabel: "e-mail address", label: "E-mail address", name: "email", type: "email"}} />
-
-          <Grid>
-            <FormControl error={!!formErrorMessage.confirmPassword}>
-            <InputField inputFields={{ariaLabel: "password", label: "Password", name: "password", type: "password", inputProps: { minLength: 6 }}}/>
-            <FormHelperText>
-              {formErrorMessage.confirmPassword }
-            </FormHelperText>
-            </FormControl>
-          </Grid>
-            <Grid>
-              <FormControl error={!!formErrorMessage.confirmPassword}>
-                <InputField inputFields={{ariaLabel: "confirm password", label: "Confirm Password", name: "confirmPassword", type: "password", inputProps: { minLength: 6 }}}/>
-                <FormHelperText>
-                  {formErrorMessage.confirmPassword}
-                </FormHelperText>
-              </FormControl>
-            </Grid>
-            <Button
-              type="submit"
-              variant="contained"
-              size="large"
-              color="primary"
-              className={classes.button}
-            >
-              Create
-            </Button>
-          </Grid>
-        </form>
+    <form onSubmit={handleRegister}>
+      <Grid item container className={classes.formGrid}>
+        <InputContainer
+          inputField={{
+            ariaLabel: "username",
+            label: "Username",
+            name: "username",
+            type: "text",
+          }}
+        />
+        <InputContainer
+          inputField={{
+            ariaLabel: "e-mail address",
+            label: "E-mail address",
+            name: "email",
+            type: "email",
+          }}
+        />
+        <Grid>
+          <FormControl error={!!formErrorMessage.confirmPassword}>
+            <InputField
+              inputFields={{
+                ariaLabel: "password",
+                label: "Password",
+                name: "password",
+                type: "password",
+                inputProps: { minLength: 6 },
+              }}
+            />
+            <FormHelperText>{formErrorMessage.confirmPassword}</FormHelperText>
+          </FormControl>
+        </Grid>
+        <Grid>
+          <FormControl error={!!formErrorMessage.confirmPassword}>
+            <InputField
+              inputFields={{
+                ariaLabel: "confirm password",
+                label: "Confirm Password",
+                name: "confirmPassword",
+                type: "password",
+                inputProps: { minLength: 6 },
+              }}
+            />
+            <FormHelperText>{formErrorMessage.confirmPassword}</FormHelperText>
+          </FormControl>
+        </Grid>
+        <Button
+          type="submit"
+          variant="contained"
+          size="large"
+          color="primary"
+          className={classes.button}
+        >
+          Create
+        </Button>
+      </Grid>
+    </form>
   );
 };
 
