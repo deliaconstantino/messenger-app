@@ -99,7 +99,7 @@ const Signup = (props) => {
         <Typography variant="h4">Create an Account</Typography>
       </Box>
         <form onSubmit={handleRegister}>
-          <Grid item container className={classes.formGrid} rowSpacing={1}>
+          <Grid item container className={classes.formGrid}>
             <Grid>
               <FormControl>
                 <TextField

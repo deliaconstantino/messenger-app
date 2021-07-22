@@ -37,15 +37,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center top",
+    height: "100vh"
   },
   backgroundColor: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    minHeight: "100vh",
+    backgroundSize: "cover",
+    height: "100%",
     backgroundImage: "linear-gradient(#3A8DFF 0%, #86B9FF 100%)",
     opacity: "0.85",
-    width: "auto",
   },
   paper: {
     margin: theme.spacing(8, 4),
@@ -70,19 +68,19 @@ function UserAccessTwo(props) {
 
   return (
     <Grid container component="main">
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <Grid
         item
-        xs={false}
-        sm={false}
+        // xs={false}
+        // sm={false}
         md={5}
         lg={5}
         xl={5}
         className={classes.image}
       >
         <Box
-          xs={false}
-          sm={false}
+          // xs={false}
+          // sm={false}
           md={5}
           lg={5}
           xl={5}
@@ -97,8 +95,8 @@ function UserAccessTwo(props) {
         lg={7}
         xl={7}
         component={Paper}
-        elevation={6}
-        square
+        // elevation={6}
+        // square
       >
         {showLogin && (
           <Grid container item>
