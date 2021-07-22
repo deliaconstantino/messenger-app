@@ -14,6 +14,8 @@ import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import { Redirect, useHistory } from "react-router-dom";
+import { connect } from "react-redux";
 import "./userAccessStyles.css";
 
 function Copyright() {
@@ -53,11 +55,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function UserAccessTwo(props) {
+function UserAccessTwo(props) {
   const classes = useStyles();
 
   const [showLogin, updateShowLogin] = useState(props.showLogin)
   const [showSignup, updateShowSignup] = useState(props.showSignup)
+
+  const { user } = props;
+
+  if (user.id) {
+    return <Redirect to="/home" />;
+  }
 
   return (
     <Grid container component="main">
@@ -66,11 +74,19 @@ export default function UserAccessTwo(props) {
         <Box xs={false} sm={6} md={5} lg={5} xl={5} className={classes.backgroundColor}></Box>
       </Grid>
       <Grid item xs={12} sm={6} md={7} lg={7} xl={7} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
+        <Box className={classes.paper}>
           {showLogin ? <Login /> : null}
           {showSignup ? <Signup /> : null}
-        </div>
+        </Box>
       </Grid>
     </Grid>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps)(UserAccessTwo);

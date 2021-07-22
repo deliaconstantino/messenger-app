@@ -13,7 +13,7 @@ import { login } from "../../store/utils/thunkCreators";
 
 const Login = (props) => {
   const history = useHistory();
-  const { user, login } = props;
+  const { login } = props;
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -22,10 +22,6 @@ const Login = (props) => {
 
     await login({ username, password });
   };
-
-  if (user.id) {
-    return <Redirect to="/home" />;
-  }
 
   return (
     <Grid container justifyContent="center">
@@ -66,12 +62,6 @@ const Login = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-  };
-};
-
 const mapDispatchToProps = (dispatch) => {
   return {
     login: (credentials) => {
@@ -80,4 +70,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(Login);

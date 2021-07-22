@@ -14,7 +14,7 @@ import { register } from "../../store/utils/thunkCreators";
 
 const Login = (props) => {
   const history = useHistory();
-  const { user, register } = props;
+  const { register } = props;
   const [formErrorMessage, setFormErrorMessage] = useState({});
 
   const handleRegister = async (event) => {
@@ -31,10 +31,6 @@ const Login = (props) => {
 
     await register({ username, email, password });
   };
-
-  if (user.id) {
-    return <Redirect to="/home" />;
-  }
 
   return (
     <Grid container justifyContent="center">
@@ -107,12 +103,6 @@ const Login = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-  };
-};
-
 const mapDispatchToProps = (dispatch) => {
   return {
     register: (credentials) => {
@@ -121,4 +111,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(Login);
