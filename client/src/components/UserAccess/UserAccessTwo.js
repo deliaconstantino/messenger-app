@@ -44,12 +44,21 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: "linear-gradient(#3A8DFF 0%, #86B9FF 100%)",
     opacity: "0.85",
   },
+  buttonGrid: {
+    display: "flex",
+    margin: theme.spacing(2, -5),
+    flexDirection: "row",
+    justifyContent: "flex-end",
+  },
+  text: {
+
+  },
+
   button: {
     ...theme.typography.userAccessButton,
     padding: theme.spacing(1, 5),
     boxShadow: "1px 2px 10px #d3d3d3",
-
-  }
+  },
 }));
 
 function UserAccessTwo(props) {
@@ -90,7 +99,7 @@ function UserAccessTwo(props) {
         xl={7}
       >
         {showLogin && (
-          <Grid container item>
+          <Grid container item >
             <Typography>Need to register?</Typography>
             <Button
               onClick={() => {
@@ -104,8 +113,8 @@ function UserAccessTwo(props) {
           </Grid>
         )}
         {showSignup && (
-          <Grid container item>
-            <Typography>Need to log in?</Typography>
+          <Grid container item className={classes.buttonGrid}>
+            <Typography className={classes.text}>Need to log in?</Typography>
             <Button size="large" className={classes.button}
               onClick={() => {
                 updateShowLogin(true);
