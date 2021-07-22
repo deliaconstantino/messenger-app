@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -8,6 +8,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import Login from "./Login";
+import Signup from "./Signup";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
@@ -52,8 +53,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function UserAccessTwo() {
+export default function UserAccessTwo(props) {
   const classes = useStyles();
+
+  const [showLogin, updateShowLogin] = useState(props.showLogin)
+  const [showSignup, updateShowSignup] = useState(props.showSignup)
 
   return (
     <Grid container component="main">
@@ -63,7 +67,8 @@ export default function UserAccessTwo() {
       </Grid>
       <Grid item xs={12} sm={6} md={7} lg={7} xl={7} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-          <Login />
+          {showLogin ? <Login /> : null}
+          {showSignup ? <Signup /> : null}
         </div>
       </Grid>
     </Grid>
