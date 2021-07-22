@@ -17,21 +17,6 @@ import { shadows } from '@material-ui/system';
 import { makeStyles } from "@material-ui/core/styles";
 import { Redirect, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
-import "./userAccessStyles.css";
-
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   image: {
@@ -88,16 +73,12 @@ function UserAccessTwo(props) {
     <Grid container component="main">
       <Grid
         item
-        xs={false}
-        sm={false}
         md={5}
         lg={5}
         xl={5}
         className={classes.image}
       >
         <Box
-          xs={false}
-          sm={false}
           md={5}
           lg={5}
           xl={5}
@@ -108,7 +89,7 @@ function UserAccessTwo(props) {
             spacing={0}
             direction="column"
             alignItems="center"
-            justify="center"
+            justifyContent="center"
             style={{ minHeight: '75vh', position: 'relative' }}
             >
             <PhraseBox />
