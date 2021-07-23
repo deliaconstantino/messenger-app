@@ -46,7 +46,7 @@ const Chat = (props) => {
         sidebar={true}
       />
       <ChatContent conversation={props.conversation} />
-      {count > 0 ? <BadgeUnread count={count} /> : null}
+      {count > 0 && <BadgeUnread count={count} />}
     </Box>
   );
 };
