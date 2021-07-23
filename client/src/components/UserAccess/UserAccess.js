@@ -11,7 +11,7 @@ import { Redirect, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { useStylesUserAccess } from "./useStylesObject";
 
-function UserAccess(props) {
+const UserAccess = (props) => {
   const history = useHistory();
   const classes = useStylesUserAccess();
 
@@ -75,7 +75,7 @@ function UserAccess(props) {
             <Box xs={12} sm={6} md={7} lg={7} xl={7}>
               <Box item>
                 <Typography variant="h5">
-                  {showLogin ? "Welcome back!" : "Create an Account" }
+                  {showLogin ? "Welcome back!" : "Create an Account"}
                 </Typography>
               </Box>
               {showLogin && <Login />}
@@ -86,7 +86,7 @@ function UserAccess(props) {
       </Grid>
     </Grid>
   );
-}
+};
 
 const mapStateToProps = (state) => {
   return {

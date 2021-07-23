@@ -4,7 +4,7 @@ import { Grid } from "@material-ui/core";
 import { login } from "../../store/utils/thunkCreators";
 import InputContainer from "./InputContainer";
 import FormButton from "./FormButton";
-import { useStylesForm } from "./useStylesObject"
+import { useStylesForm } from "./useStylesObject";
 
 const Login = (props) => {
   const classes = useStylesForm();

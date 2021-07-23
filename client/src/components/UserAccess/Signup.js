@@ -5,7 +5,7 @@ import { register } from "../../store/utils/thunkCreators";
 import InputContainer from "./InputContainer";
 import InputField from "./InputField";
 import FormButton from "./FormButton";
-import { useStylesForm } from "./useStylesObject"
+import { useStylesForm } from "./useStylesObject";
 
 const Signup = (props) => {
   const classes = useStylesForm();
