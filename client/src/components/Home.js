@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Redirect } from "react-router-dom";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Grid, CssBaseline, Button } from "@material-ui/core";
 import { SidebarContainer } from "./Sidebar";
 import { ActiveChat } from "./ActiveChat";
@@ -15,26 +15,32 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Home = (props) => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
   const classes = useStyles();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const prevPropsRef = useRef();
 
-  useEffect((prevPropsRef) => {
-    if (prevPropsRef?.user.id !== props.user.id) {
-      setIsLoggedIn(true);
-    }
-  }, [props.user.id]);
+  useEffect(
+    (prevPropsRef) => {
+      if (prevPropsRef?.user.id !== user.id) {
+        setIsLoggedIn(true);
+      }
+    },
+    [user.id]
+  );
 
   useEffect(() => {
-    props.fetchConversations();
+    dispatch(fetchConversations());
   }, []);
 
   const handleLogout = async () => {
-    await props.logout(props.user.id);
+    await dispatch(logout(user.id));
+    dispatch(clearOnLogout());
   };
 
-  if (!props.user.id) {
+  if (!user.id) {
     // If we were previously logged in, redirect to login instead of register
     if (isLoggedIn) return <Redirect to="/login" />;
     return <Redirect to="/register" />;
@@ -52,26 +58,6 @@ const Home = (props) => {
       </Grid>
     </>
   );
-  // }
 };
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-    conversations: state.conversations,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    logout: (id) => {
-      dispatch(logout(id));
-      dispatch(clearOnLogout());
-    },
-    fetchConversations: () => {
-      dispatch(fetchConversations());
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;
