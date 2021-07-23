@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FormControl, FilledInput } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { postMessage } from "../../store/utils/thunkCreators";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Input = (props) => {
   const classes = useStyles();
-  const conversations = useSelector((state) => state.conversations);
   const dispatch = useDispatch();
   const [text, setText] = useState("");
 
