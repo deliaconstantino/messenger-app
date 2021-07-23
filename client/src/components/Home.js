@@ -24,7 +24,7 @@ const Home = (props) => {
     if (prevPropsRef && props.user.id !== prevPropsRef.user.id) {
       setIsLoggedIn(true);
     }
-  });
+  }, [props.user.id]);
 
   useEffect(() => {
     props.fetchConversations();
