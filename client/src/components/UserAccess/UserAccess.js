@@ -14,10 +14,8 @@ import { useStylesUserAccess } from "./useStylesObject";
 function UserAccess(props) {
   const history = useHistory();
   const classes = useStylesUserAccess();
-
-  const [showLogin, updateShowLogin] = useState(props.showLogin);
-  const [showSignup, updateShowSignup] = useState(props.showSignup);
-
+  const [showLogin, setShowLogin] = useState(props.showLogin);
+  const [showSignup, setShowSignup] = useState(props.showSignup);
   const { user } = props;
 
   if (user.id) {
@@ -44,8 +42,8 @@ function UserAccess(props) {
             <Button
               className={classes.button}
               onClick={() => {
-                updateShowLogin(false);
-                updateShowSignup(true);
+                setShowLogin(false);
+                setShowSignup(true);
                 history.push("/register");
               }}
             >
@@ -61,8 +59,8 @@ function UserAccess(props) {
             <Button
               className={classes.button}
               onClick={() => {
-                updateShowLogin(true);
-                updateShowSignup(false);
+                setShowLogin(true);
+                setShowSignup(false);
                 history.push("/login");
               }}
             >
@@ -75,7 +73,7 @@ function UserAccess(props) {
             <Box xs={12} sm={6} md={7} lg={7} xl={7}>
               <Box item>
                 <Typography variant="h5">
-                  {showLogin ? "Welcome back!" : "Create an Account" }
+                  {showLogin ? "Welcome back!" : "Create an Account"}
                 </Typography>
               </Box>
               {showLogin && <Login />}
