@@ -22,17 +22,17 @@ const useStyles = makeStyles(() => ({
 
 const ActiveChat = () => {
   const user = useSelector((state) => state.user);
-  const grabConversation = useSelector(
-    (state) =>
-      state.conversations &&
-      state.conversations.find(
-        (conversation) =>
-          conversation.otherUser.username === state.activeConversation
-      )
-  );
+  const conversation =
+    useSelector(
+      (state) =>
+        state.conversations &&
+        state.conversations.find(
+          (conversation) =>
+            conversation.otherUser.username === state.activeConversation
+        )
+    ) || {};
 
   const classes = useStyles();
-  const conversation = grabConversation || {};
 
   return (
     <Box className={classes.root}>
