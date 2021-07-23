@@ -21,7 +21,7 @@ const Home = (props) => {
   const prevPropsRef = useRef();
 
   useEffect((prevPropsRef) => {
-    if (prevPropsRef && props.user.id !== prevPropsRef.user.id) {
+    if (prevPropsRef?.user.id !== props.user.id) {
       setIsLoggedIn(true);
     }
   }, [props.user.id]);
