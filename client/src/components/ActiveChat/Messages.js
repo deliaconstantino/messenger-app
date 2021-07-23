@@ -1,13 +1,22 @@
 import React from "react";
 import { Box } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import { SenderBubble, OtherUserBubble } from "../ActiveChat";
 import moment from "moment";
 
+const useStyles = makeStyles(() => ({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+  },
+}));
+
 const Messages = (props) => {
+  const classes = useStyles();
   const { messages, otherUser, userId, lastSeenId } = props;
 
   return (
-    <Box>
+    <Box className={classes.root}>
       {messages.map((message) => {
         const time = moment(message.createdAt).format("h:mm");
 
@@ -24,6 +33,8 @@ const Messages = (props) => {
           <OtherUserBubble
             key={message.id}
             text={message.text}
+            lastSeenId={lastSeenId}
+            messageId={message.id}
             time={time}
             otherUser={otherUser}
           />

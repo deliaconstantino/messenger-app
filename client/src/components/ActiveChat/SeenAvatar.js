@@ -3,12 +3,11 @@ import { Box, Avatar } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   avatar: {
     height: 20,
     width: 20,
-    marginRight: 2,
-    marginTop: 6,
+    margin: theme.spacing(0.8),
   },
 }));
 
@@ -18,7 +17,7 @@ const SeenAvatar = (props) => {
 
   return (
     <Box>
-      <Avatar alt={username} src={photoUrl} className={classes.avatar}></Avatar>
+      <Avatar alt={username} src={photoUrl} className={classes.avatar} />
     </Box>
   );
 };

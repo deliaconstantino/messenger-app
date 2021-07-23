@@ -1,10 +1,11 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography, Avatar } from "@material-ui/core";
+import SeenAvatar from "./SeenAvatar";
 
 const useStyles = makeStyles(() => ({
   root: {
-    display: "flex"
+    display: "flex",
   },
   avatar: {
     height: 30,
@@ -20,7 +21,9 @@ const useStyles = makeStyles(() => ({
   },
   bubble: {
     backgroundImage: "linear-gradient(225deg, #6CC1FF 0%, #3A8DFF 100%)",
-    borderRadius: "0 10px 10px 10px"
+    borderRadius: "0 10px 10px 10px",
+    flexDirection: "column",
+    alignItems: "flex-start"
   },
   text: {
     fontSize: 14,
@@ -28,12 +31,15 @@ const useStyles = makeStyles(() => ({
     color: "#FFFFFF",
     letterSpacing: -0.2,
     padding: 8
+  },
+  seenBox: {
+    float: "right",
   }
 }));
 
 const OtherUserBubble = (props) => {
   const classes = useStyles();
-  const { text, time, otherUser } = props;
+  const { text, time, messageId, lastSeenId, otherUser } = props;
   return (
     <Box className={classes.root}>
       <Avatar alt={otherUser.username} src={otherUser.photoUrl} className={classes.avatar}></Avatar>
@@ -43,6 +49,9 @@ const OtherUserBubble = (props) => {
         </Typography>
         <Box className={classes.bubble}>
           <Typography className={classes.text}>{text}</Typography>
+        </Box>
+        <Box className={classes.seenBox}>
+        {lastSeenId === messageId && <SeenAvatar otherUser={otherUser}/>}
         </Box>
       </Box>
     </Box>
