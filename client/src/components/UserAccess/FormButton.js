@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
 const FormButton = (props) => {
   const classes = useStyles();
 
-  const { textValue } = props
+  const { textValue } = props;
   return (
     <Grid>
       <Button
