@@ -41,16 +41,19 @@ const Routes = () => {
         />
       )}
       <Switch>
-        <Route path="/login" render={() => <UserAccess showLogin={true} />} />
+        <Route
+          path="/login"
+          render={() => <UserAccess showLoginComponent={true} />}
+        />
         <Route
           path="/register"
-          render={() => <UserAccess showSignup={true} />}
+          render={() => <UserAccess showSignupComponent={true} />}
         />
         <Route
           exact
           path="/"
           render={() =>
-            user?.id ? <Home /> : <UserAccess showSignup={true} />
+            user?.id ? <Home /> : <UserAccess showSignupComponent={true} />
           }
         />
         <Route path="/home" component={Home} />

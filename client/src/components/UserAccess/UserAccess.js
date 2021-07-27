@@ -11,12 +11,12 @@ import { Redirect, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useStylesUserAccess } from "./useStylesObject";
 
-const UserAccess = (props) => {
+const UserAccess = ({ showLoginComponent, showSignupComponent }) => {
   const history = useHistory();
   const classes = useStylesUserAccess();
   const user = useSelector((state) => state.user);
-  const [showLogin, updateShowLogin] = useState(props.showLogin);
-  const [showSignup, updateShowSignup] = useState(props.showSignup);
+  const [showLogin, setShowLogin] = useState(showLoginComponent);
+  const [showSignup, setShowSignup] = useState(showSignupComponent);
 
   if (user.id) {
     return <Redirect to="/home" />;
@@ -42,8 +42,8 @@ const UserAccess = (props) => {
             <Button
               className={classes.button}
               onClick={() => {
-                updateShowLogin(false);
-                updateShowSignup(true);
+                setShowLogin(false);
+                setShowSignup(true);
                 history.push("/register");
               }}
             >
@@ -59,8 +59,8 @@ const UserAccess = (props) => {
             <Button
               className={classes.button}
               onClick={() => {
-                updateShowLogin(true);
-                updateShowSignup(false);
+                setShowLogin(true);
+                setShowSignup(false);
                 history.push("/login");
               }}
             >
