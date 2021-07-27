@@ -9,12 +9,12 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const BadgeUnread = (props) => {
+const BadgeUnread = ({ count }) => {
   const classes = useStyles();
 
   return (
     <Box className={classes.sidebar}>
-      <Badge badgeContent={props.count} color="primary"></Badge>
+      <Badge badgeContent={count} color="primary"></Badge>
     </Box>
   );
 };

@@ -31,9 +31,9 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const OtherUserBubble = (props) => {
+const OtherUserBubble = ({ text, time, otherUser }) => {
   const classes = useStyles();
-  const { text, time, otherUser } = props;
+
   return (
     <Box className={classes.root}>
       <Avatar

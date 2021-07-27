@@ -39,11 +39,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ChatContent = (props) => {
+const ChatContent = ({ conversation }) => {
   const classes = useStyles();
 
-  const { latestMessageText, otherUser, unreadMessagesCount } =
-    props.conversation;
+  const { latestMessageText, otherUser, unreadMessagesCount } = conversation;
 
   const readStatusUI =
     unreadMessagesCount > 0 ? classes.unreadPreviewText : classes.previewText;

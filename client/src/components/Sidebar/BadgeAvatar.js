@@ -23,9 +23,8 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const UserAvatar = (props) => {
+const UserAvatar = ({ sidebar, username, photoUrl, online }) => {
   const classes = useStyles();
-  const { sidebar, username, photoUrl, online } = props;
 
   return (
     <Box className={sidebar ? classes.sidebar : ""}>

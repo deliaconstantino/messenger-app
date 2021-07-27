@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Search = (props) => {
+const Search = ({ handleChange }) => {
   const classes = useStyles();
 
   const handleSubmit = (event) => {
@@ -36,7 +36,7 @@ const Search = (props) => {
       <FormControl fullWidth hiddenLabel>
         <FilledInput
           name="search"
-          onChange={props.handleChange}
+          onChange={handleChange}
           classes={{ root: classes.filledInput, input: classes.input }}
           disableUnderline
           placeholder="Search"
