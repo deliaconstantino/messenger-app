@@ -8,15 +8,15 @@ import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { Redirect, useHistory } from "react-router-dom";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import { useStylesUserAccess } from "./useStylesObject";
 
-function UserAccess(props) {
+const UserAccess = ({ showLoginComponent, showSignupComponent }) => {
   const history = useHistory();
   const classes = useStylesUserAccess();
-  const [showLogin, setShowLogin] = useState(props.showLogin);
-  const [showSignup, setShowSignup] = useState(props.showSignup);
-  const { user } = props;
+  const user = useSelector((state) => state.user);
+  const [showLogin, setShowLogin] = useState(showLoginComponent);
+  const [showSignup, setShowSignup] = useState(showSignupComponent);
 
   if (user.id) {
     return <Redirect to="/home" />;
@@ -84,12 +84,6 @@ function UserAccess(props) {
       </Grid>
     </Grid>
   );
-}
-
-const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-  };
 };
 
-export default connect(mapStateToProps)(UserAccess);
+export default UserAccess;

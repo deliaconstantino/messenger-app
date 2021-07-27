@@ -1,21 +1,21 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Grid } from "@material-ui/core";
 import { login } from "../../store/utils/thunkCreators";
 import InputContainer from "./InputContainer";
 import FormButton from "./FormButton";
-import { useStylesForm } from "./useStylesObject"
+import { useStylesForm } from "./useStylesObject";
 
-const Login = (props) => {
+const Login = () => {
+  const dispatch = useDispatch();
   const classes = useStylesForm();
-  const { login } = props;
 
   const handleLogin = async (event) => {
     event.preventDefault();
     const username = event.target.username.value;
     const password = event.target.password.value;
 
-    await login({ username, password });
+    await dispatch(login({ username, password }));
   };
 
   return (
@@ -43,12 +43,4 @@ const Login = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    login: (credentials) => {
-      dispatch(login(credentials));
-    },
-  };
-};
-
-export default connect(null, mapDispatchToProps)(Login);
+export default Login;

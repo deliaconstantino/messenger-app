@@ -9,10 +9,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const FormButton = (props) => {
+const FormButton = ({ textValue }) => {
   const classes = useStyles();
 
-  const { textValue } = props
   return (
     <Grid>
       <Button

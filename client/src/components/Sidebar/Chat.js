@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import { Box } from "@material-ui/core";
 import { BadgeAvatar, ChatContent } from "../Sidebar";
-import { withStyles } from "@material-ui/core/styles";
 import { setActiveChat } from "../../store/activeConversation";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { updateReadStatus } from "../../store/utils/thunkCreators";
 import BadgeUnread from "./BadgeUnread";
 
-const styles = {
+const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: 8,
     height: 80,
@@ -19,50 +19,37 @@ const styles = {
       cursor: "grab",
     },
   },
-};
+}));
 
-class Chat extends Component {
-  handleClick = async (conversation) => {
-    await this.props.setActiveChat(conversation.otherUser.username);
+const Chat = ({conversation}) => {
+  const dispatch = useDispatch();
+  const classes = useStyles();
+  const otherUser = conversation.otherUser;
+  const count = conversation.unreadMessagesCount;
+
+  const handleClick = async (conversation) => {
+    await dispatch(setActiveChat(conversation.otherUser.username));
     const reqBody = {
       conversationId: conversation.id,
     };
-    if (conversation.unreadMessagesCount > 0) {
-      await this.props.updateReadStatus(reqBody);
-    }
+    (count > 0) && await dispatch(updateReadStatus(reqBody));
   };
 
-  render() {
-    const { classes, conversation } = this.props;
-    const otherUser = conversation.otherUser;
-    const count = conversation.unreadMessagesCount;
-    return (
-      <Box
-        onClick={() => this.handleClick(conversation)}
-        className={classes.root}
-      >
-        <BadgeAvatar
-          photoUrl={otherUser.photoUrl}
-          username={otherUser.username}
-          online={otherUser.online}
-          sidebar={true}
-        />
-        <ChatContent conversation={conversation} />
-        {count > 0 && <BadgeUnread count={count} />}
-      </Box>
-    );
-  }
+  return (
+    <Box
+      onClick={() => handleClick(conversation)}
+      className={classes.root}
+    >
+      <BadgeAvatar
+        photoUrl={otherUser.photoUrl}
+        username={otherUser.username}
+        online={otherUser.online}
+        sidebar={true}
+      />
+      <ChatContent conversation={conversation} />
+      {count > 0 && <BadgeUnread count={count} />}
+    </Box>
+  );   
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setActiveChat: (id) => {
-      dispatch(setActiveChat(id));
-    },
-    updateReadStatus: (conversationId) => {
-      dispatch(updateReadStatus(conversationId));
-    },
-  };
-};
-
-export default connect(null, mapDispatchToProps)(withStyles(styles)(Chat));
+export default Chat;

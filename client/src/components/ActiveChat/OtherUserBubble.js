@@ -11,13 +11,13 @@ const useStyles = makeStyles(() => ({
     height: 30,
     width: 30,
     marginRight: 11,
-    marginTop: 6
+    marginTop: 6,
   },
   usernameDate: {
     fontSize: 11,
     color: "#BECCE2",
     fontWeight: "bold",
-    marginBottom: 5
+    marginBottom: 5,
   },
   bubble: {
     backgroundImage: "linear-gradient(225deg, #6CC1FF 0%, #3A8DFF 100%)",
@@ -30,19 +30,23 @@ const useStyles = makeStyles(() => ({
     fontWeight: "bold",
     color: "#FFFFFF",
     letterSpacing: -0.2,
-    padding: 8
+    padding: 8,
   },
   seenBox: {
     float: "right",
   }
 }));
 
-const OtherUserBubble = (props) => {
+const OtherUserBubble = ({ text, time, otherUser, lastSeenId, messageId }) => {
   const classes = useStyles();
-  const { text, time, messageId, lastSeenId, otherUser } = props;
+
   return (
     <Box className={classes.root}>
-      <Avatar alt={otherUser.username} src={otherUser.photoUrl} className={classes.avatar}></Avatar>
+      <Avatar
+        alt={otherUser.username}
+        src={otherUser.photoUrl}
+        className={classes.avatar}
+      ></Avatar>
       <Box>
         <Typography className={classes.usernameDate}>
           {otherUser.username} {time}

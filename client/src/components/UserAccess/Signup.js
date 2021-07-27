@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Grid, FormControl, FormHelperText } from "@material-ui/core";
 import { register } from "../../store/utils/thunkCreators";
 import InputContainer from "./InputContainer";
 import InputField from "./InputField";
 import FormButton from "./FormButton";
-import { useStylesForm } from "./useStylesObject"
+import { useStylesForm } from "./useStylesObject";
 
-const Signup = (props) => {
+const Signup = () => {
+  const dispatch = useDispatch();
   const classes = useStylesForm();
-  const { register } = props;
   const [formErrorMessage, setFormErrorMessage] = useState({});
 
   const handleRegister = async (event) => {
@@ -24,7 +24,7 @@ const Signup = (props) => {
       return;
     }
 
-    await register({ username, email, password });
+    await dispatch(register({ username, email, password }));
   };
 
   return (
@@ -80,12 +80,4 @@ const Signup = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    register: (credentials) => {
-      dispatch(register(credentials));
-    },
-  };
-};
-
-export default connect(null, mapDispatchToProps)(Signup);
+export default Signup;

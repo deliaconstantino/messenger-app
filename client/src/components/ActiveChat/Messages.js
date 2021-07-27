@@ -11,9 +11,8 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Messages = (props) => {
+const Messages = ({ messages, otherUser, userId, lastSeenId }) => {
   const classes = useStyles();
-  const { messages, otherUser, userId, lastSeenId } = props;
 
   return (
     <Box className={classes.root}>

@@ -11,9 +11,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SeenAvatar = (props) => {
+const SeenAvatar = ({otherUser}) => {
   const classes = useStyles();
-  const { username, photoUrl } = props.otherUser;
+  const { username, photoUrl } = otherUser;
 
   return (
     <Box>

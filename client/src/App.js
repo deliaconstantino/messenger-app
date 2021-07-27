@@ -7,7 +7,7 @@ import store from "./store";
 import { theme } from "./themes/theme";
 import Routes from "./routes";
 
-function App() {
+const App = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>

@@ -14,14 +14,15 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       minWidth: "500px",
     },
-  }
+  },
 }));
 
-const InputField= props => {
+const InputField = ({
+  inputFields: { ariaLabel, label, name, type, inputProps },
+}) => {
   const classes = useStyles();
-  const { ariaLabel, label, name, type } = props.inputFields;
 
-  if (props.inputFields.inputProps) {
+  if (inputProps) {
     return (
       <TextField
         aria-label={ariaLabel}
@@ -31,9 +32,9 @@ const InputField= props => {
         fullWidth
         required
         className={classes.input}
-        inputProps={props.inputProps}
+        inputProps={inputProps}
       />
-    )
+    );
   } else {
     return (
       <TextField
@@ -45,9 +46,8 @@ const InputField= props => {
         required
         className={classes.input}
       />
-    )
+    );
   }
-
-}
+};
 
 export default InputField;
