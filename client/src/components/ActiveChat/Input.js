@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Input = (props) => {
+const Input = ({otherUser, conversationId, user}) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const [text, setText] = useState("");
@@ -31,9 +31,9 @@ const Input = (props) => {
     // add sender user info if posting to a brand new convo, so that the other user will have access to username, profile pic, etc.
     const reqBody = {
       text: event.target.text.value,
-      recipientId: props.otherUser.id,
-      conversationId: props.conversationId,
-      sender: props.conversationId ? null : props.user,
+      recipientId: otherUser.id,
+      conversationId: conversationId,
+      sender: conversationId ? null : user,
     };
     await dispatch(postMessage(reqBody));
     setText("");
