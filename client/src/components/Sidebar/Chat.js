@@ -21,23 +21,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Chat = (props) => {
+const Chat = ({conversation}) => {
   const dispatch = useDispatch();
   const classes = useStyles();
-  const otherUser = props.conversation.otherUser;
-  const count = props.conversation.unreadMessagesCount;
+  const otherUser = conversation.otherUser;
+  const count = conversation.unreadMessagesCount;
 
   const handleClick = async (conversation) => {
     await dispatch(setActiveChat(conversation.otherUser.username));
     const reqBody = {
-      conversationId: props.conversation.id,
+      conversationId: conversation.id,
     };
     await dispatch(updateReadStatus(reqBody));
   };
 
   return (
     <Box
-      onClick={() => handleClick(props.conversation)}
+      onClick={() => handleClick(conversation)}
       className={classes.root}
     >
       <BadgeAvatar
@@ -46,7 +46,7 @@ const Chat = (props) => {
         online={otherUser.online}
         sidebar={true}
       />
-      <ChatContent conversation={props.conversation} />
+      <ChatContent conversation={conversation} />
       {count > 0 && <BadgeUnread count={count} />}
     </Box>
   );
