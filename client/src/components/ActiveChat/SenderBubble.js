@@ -37,7 +37,7 @@ const SenderBubble = ({ time, text, messageId, lastSeenId, otherUser }) => {
       <Box className={classes.bubble}>
         <Typography className={classes.text}>{text}</Typography>
       </Box>
-      {lastSeenId === messageId && <SeenAvatar otherUser={otherUser} />}
+      {lastSeenId === messageId && <SeenAvatar otherUser={otherUser}/>}
     </Box>
   );
 };

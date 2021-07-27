@@ -32,7 +32,7 @@ const Chat = ({conversation}) => {
     const reqBody = {
       conversationId: conversation.id,
     };
-    await dispatch(updateReadStatus(reqBody));
+    (count > 0) && await dispatch(updateReadStatus(reqBody));
   };
 
   return (
@@ -49,7 +49,7 @@ const Chat = ({conversation}) => {
       <ChatContent conversation={conversation} />
       {count > 0 && <BadgeUnread count={count} />}
     </Box>
-  );
-};
+  );   
+}
 
 export default Chat;
