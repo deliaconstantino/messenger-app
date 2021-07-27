@@ -5,7 +5,7 @@ import { fetchUser } from "./store/utils/thunkCreators";
 import { Home, SnackbarError } from "./components";
 import { UserAccess } from "./components/UserAccess";
 
-const Routes = (props) => {
+const Routes = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const [errorMessage, setErrorMessage] = useState("");
