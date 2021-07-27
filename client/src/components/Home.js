@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,13 +14,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Home = (props) => {
+const Home = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const classes = useStyles();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const prevPropsRef = useRef();
 
   useEffect(
     (prevPropsRef) => {
